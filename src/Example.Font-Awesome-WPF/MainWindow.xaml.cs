@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Example.Font_Awesome_WPF.ViewModel;
+using Font_Awesome.WPF;
 
 namespace Example.Font_Awesome_WPF
 {
@@ -26,5 +27,18 @@ namespace Example.Font_Awesome_WPF
             InitializeComponent();
         }
 
+        private void IconSource_OnFilter(object sender, FilterEventArgs e)
+        {
+            var icon = e.Item as IconDescription;
+
+            if (icon == null) return;
+
+            e.Accepted = icon.Description.ToLower().Contains(FilterText.Text.ToLower());
+        }
+
+        private void FilterText_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(FaListView.ItemsSource).Refresh();
+        }
     }
 }

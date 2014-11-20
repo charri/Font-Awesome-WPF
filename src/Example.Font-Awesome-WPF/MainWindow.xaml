@@ -4,18 +4,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="clr-namespace:Font_Awesome.WPF;assembly=Font-Awesome-WPF"
-        xmlns:System="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:Example.Font_Awesome_WPF.ViewModel"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
-        xmlns:markup="clr-namespace:Example.Font_Awesome_WPF.MarkupExtensions"
-        Title="FontAwesome WPF Example" Height="350" Width="525" d:DataContext="{d:DesignInstance Type=vm:MainViewModel}">
+        Icon="logo.png"
+        Title="FontAwesome WPF Example" Height="600" Width="750" d:DataContext="{d:DesignInstance Type=vm:MainViewModel}">
     <Window.DataContext>
         <vm:MainViewModel/>
     </Window.DataContext>
     <Window.Resources>
-        
-        <CollectionViewSource x:Key="IconSource" Source="{Binding Path=Icons}">
+
+        <CollectionViewSource x:Key="IconSource" Source="{Binding Path=Icons}" Filter="IconSource_OnFilter">
             <CollectionViewSource.SortDescriptions>
                 <componentModel:SortDescription PropertyName="Category" />
                 <componentModel:SortDescription PropertyName="Description" />
@@ -23,11 +22,6 @@
             <CollectionViewSource.GroupDescriptions>
                 <PropertyGroupDescription PropertyName="Category" />
             </CollectionViewSource.GroupDescriptions>
-            <CollectionViewSource.Filter>
-                <markup:Filter>
-                    <markup:PropertyFilter PropertyName="Name" Value="{Binding ElementName=FilterText, Path=Text}" />
-                </markup:Filter>
-            </CollectionViewSource.Filter>
         </CollectionViewSource>
 
         <DataTemplate DataType="{x:Type vm:IconDescription}">
@@ -54,17 +48,17 @@
             <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
-        
+
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
             <Label Content="Font-Size: " />
             <Slider Width="150" VerticalAlignment="Center" Value="30" Minimum="10" Maximum="50" x:Name="FontSizeSlider" />
             <TextBlock Text="{Binding ElementName=FontSizeSlider, Path=Value, StringFormat={}{0:00.00}}" VerticalAlignment="Center" />
             <Rectangle Margin="10,2" Fill="LightGray" Width="1" />
             <Label Content="Filter: " />
-            <TextBox Width="150" Margin="0,3" x:Name="FilterText" />
+            <TextBox Width="150" Margin="0,3" x:Name="FilterText" TextChanged="FilterText_OnTextChanged" />
         </StackPanel>
-        
-        
+
+
         <ListView Grid.Row="1" ItemsSource="{Binding Source={StaticResource ResourceKey=IconSource}}" x:Name="FaListView" SelectedIndex="0">
             <ListView.GroupStyle>
                 <GroupStyle>
@@ -90,7 +84,7 @@
                 </GroupStyle>
             </ListView.GroupStyle>
         </ListView>
-        
+
         <StackPanel Grid.Row="1" Grid.Column="1">
 
 
