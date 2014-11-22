@@ -1,0 +1,1 @@
+nuget push FontAwesome.WPF.*.nupkg
