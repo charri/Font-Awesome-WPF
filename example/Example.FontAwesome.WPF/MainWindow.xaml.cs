@@ -16,6 +16,8 @@ namespace Example.FontAwesome.WPF
         {
             InitializeComponent();
             Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.Flag, Brushes.Black);
+
+            Closed += (sender, args) => Application.Current.Shutdown();
         }
 
         private void IconSource_OnFilter(object sender, FilterEventArgs e)
@@ -30,6 +32,12 @@ namespace Example.FontAwesome.WPF
         private void FilterText_OnTextChanged(object sender, TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(FaListView.ItemsSource).Refresh();
+        }
+
+        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
+        {
+            var single = new Single();
+            single.Show();
         }
     }
 }

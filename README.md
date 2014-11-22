@@ -16,20 +16,24 @@ PM> Install-Package FontAwesome.WPF
 
 ### Usage XAML
 
-Add Namespace to XAML
 ```
-xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
+<Window x:Class="Example.FontAwesome.WPF.Single"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
+        Title="Single" Height="300" Width="300">
+    <Grid  Margin="20">
+        <fa:ImageAwesome Icon="Flag" VerticalAlignment="Center" HorizontalAlignment="Center" />
+    </Grid>
+</Window>
 ```
 
-Use the TextBlock based control
+You can also use the TextBlock based control.
 ```
 <fa:FontAwesome Icon="Flag" />
 ```
 
-Or the Image rendered based control
-```
-<fa:ImageAwesome Icon="Flag" />
-```
+> The Image base <fa:ImageAwesome /> control is useful when you need to fill an entire space. Whereas the TextBlock base <fa:FontAwesome /> is advantages when you need a certain FontSize. 
 
 ### Usage Code-Behind
 
