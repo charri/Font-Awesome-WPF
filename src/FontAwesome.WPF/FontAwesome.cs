@@ -8,7 +8,7 @@ namespace FontAwesome.WPF
     public class FontAwesome
         : TextBlock
     {
-        private static readonly FontFamily FontAwesomeFontFamily = new FontFamily(new Uri("pack://application:,,,/Font-Awesome-WPF;component/"), "./#FontAwesome");
+        private static readonly FontFamily FontAwesomeFontFamily = new FontFamily(new Uri("pack://application:,,,/FontAwesome.WPF;component/"), "./#FontAwesome");
 
         public FontAwesomeIcon Icon
         {
@@ -21,15 +21,10 @@ namespace FontAwesome.WPF
 
         private static void OnIconPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
+            d.SetValue(TextBlock.FontFamilyProperty, FontAwesomeFontFamily);
+            d.SetValue(TextBlock.TextAlignmentProperty, System.Windows.TextAlignment.Center);
             d.SetValue(TextBlock.TextProperty, char.ConvertFromUtf32((int)e.NewValue));
         }
-
-        public FontAwesome()
-        {
-            FontFamily = FontAwesomeFontFamily;
-            TextAlignment = System.Windows.TextAlignment.Center;
-        }
-
 
     }
 }

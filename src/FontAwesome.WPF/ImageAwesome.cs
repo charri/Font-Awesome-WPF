@@ -13,13 +13,13 @@ namespace FontAwesome.WPF
     public class ImageAwesome
         : Image
     {
-        private static readonly FontFamily FontAwesomeFontFamily = new FontFamily(new Uri("pack://application:,,,/Font-Awesome-WPF;component/"), "./#FontAwesome");
+        private static readonly FontFamily FontAwesomeFontFamily = new FontFamily(new Uri("pack://application:,,,/FontAwesome.WPF;component/"), "./#FontAwesome");
 
         private static readonly Typeface FontAweseomTypeface = new Typeface(FontAwesomeFontFamily, FontStyles.Normal,
             FontWeights.Normal, FontStretches.Normal);
 
         public static readonly DependencyProperty ForegroundProperty =
-            DependencyProperty.Register("Foreground", typeof(Brush), typeof(ImageAwesome), new PropertyMetadata(Brushes.Black));
+            DependencyProperty.Register("Foreground", typeof(Brush), typeof(ImageAwesome), new PropertyMetadata(Brushes.Black, OnIconPropertyChanged));
 
         public Brush Foreground
         {
@@ -45,7 +45,7 @@ namespace FontAwesome.WPF
             d.SetValue(Image.SourceProperty, CreateImageSource(imageAwesome.Icon, imageAwesome.Foreground));
         }
 
-        private static ImageSource CreateImageSource(FontAwesomeIcon icon, Brush foregroundBrush)
+        public static ImageSource CreateImageSource(FontAwesomeIcon icon, Brush foregroundBrush)
         {
             var charIcon = char.ConvertFromUtf32((int)icon);
 

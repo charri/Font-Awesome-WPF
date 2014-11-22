@@ -7,8 +7,7 @@
         mc:Ignorable="d"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         xmlns:viewModel="clr-namespace:Example.FontAwesome.WPF.ViewModel"
-        Icon="logo.png"
-        Title="FontAwesome WPF Example" Height="600" Width="750" d:DataContext="{d:DesignInstance Type=viewModel:MainViewModel}">
+        Title="FontAwesome WPF Example" Height="600" Width="750">
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
@@ -45,8 +44,8 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
         <StackPanel Orientation="Horizontal" Grid.ColumnSpan="2">
@@ -104,6 +103,7 @@
                 Text="{Binding Path=Icon, StringFormat='&lt;fa:FontAwesome Icon=&quot;{0}&quot; FontSize=&quot;100&quot; /&gt;'}"
                 DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
                 TextAlignment="Center"
+                TextWrapping="Wrap"
                 FontFamily="Consolas"
                 Margin="0,20"
                 />
@@ -117,6 +117,7 @@
                 Text="{Binding Path=Icon, StringFormat='&lt;fa:ImageAwesome Icon=&quot;{0}&quot; Width=&quot;50&quot; Height=&quot;50&quot; /&gt;'}"
                 DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
                 TextAlignment="Center"
+                TextWrapping="Wrap"
                 FontFamily="Consolas"
                 Margin="0,20"
                 />

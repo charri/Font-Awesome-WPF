@@ -1,7 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Media;
 using Example.FontAwesome.WPF.ViewModel;
+using FontAwesome.WPF;
 
 namespace Example.FontAwesome.WPF
 {
@@ -13,6 +15,7 @@ namespace Example.FontAwesome.WPF
         public MainWindow()
         {
             InitializeComponent();
+            Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.Flag, Brushes.Black);
         }
 
         private void IconSource_OnFilter(object sender, FilterEventArgs e)
