@@ -3,12 +3,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using FontAwesome.WPF;
 
-namespace Example.Font_Awesome_WPF.ViewModel
+namespace Example.FontAwesome.WPF.ViewModel
 {
     public class MainViewModel
     {
@@ -26,6 +23,8 @@ namespace Example.Font_Awesome_WPF.ViewModel
             foreach (var icon in icons)
             {
                 var memberInfo = typeof(FontAwesomeIcon).GetMember(icon.ToString()).FirstOrDefault();
+
+                if(memberInfo == null) continue; // alias
 
                 foreach (var cat in memberInfo.GetCustomAttributes(typeof(IconCategoryAttribute), false).Cast<IconCategoryAttribute>())
                 {
