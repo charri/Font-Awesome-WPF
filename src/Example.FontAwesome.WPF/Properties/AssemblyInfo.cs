@@ -11,7 +11,7 @@ using System.Windows;
 [assembly: AssemblyCompany("charri")]
 [assembly: AssemblyProduct("Example.FontAwesome.WPF")]
 [assembly: AssemblyCopyright("Copyright © 2014")]
-[assembly: AssemblyCulture("neutral")]
+[assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
 // to COM components.  If you need to access a type in this assembly from 
