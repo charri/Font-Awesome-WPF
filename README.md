@@ -14,6 +14,9 @@ To install FontAwesome.WPF, run the following command in the Package Manager Con
 PM> Install-Package FontAwesome.WPF
 ```
 
+Or search & install the package via the NuGet Package Manager.
+
+
 ### Usage XAML
 
 ```
@@ -53,3 +56,34 @@ Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.Flag, Brushes.Black);
 ![alt text](/doc/screen-example.png "Example")
 
 Can be found in /example/ folder.
+
+## Icons
+
+All icons including their aliases are generated from FontAwesomes' icons.yaml. 
+
+```C#
+public enum FontAwesomeIcon {
+....
+///<summary>cog (created: 1.0)</summary>
+///<see cref="http://fontawesome.io/icon/cog/" />
+[IconCategory("Web Application Icons"),IconCategory("Spinner Icons")]
+[Description("cog")]
+Cog = 0xf013,
+///<summary>Alias of: Cog</summary>
+///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.Cog" />
+[IconAlias]
+Gear = Cog,
+....
+}
+```
+
+Following meta data is added:
+* Icon
+	* XML-Doc <summary> from name with created reference.
+	* XML-DOC <see /> for direct link to icon web page.
+	* IconCategory Attributes, one per category
+	* Description Attribute, name
+* Alias
+	* XML-Doc <summary> Alias of: referencing icon
+	* XML-Doc <see /> to referencing field (to reduce code file length)
+	* IconAlias Attribute
