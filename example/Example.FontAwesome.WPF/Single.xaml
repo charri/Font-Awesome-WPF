@@ -1,0 +1,9 @@
+﻿<Window x:Class="Example.FontAwesome.WPF.Single"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
+        Title="Single" Height="300" Width="300">
+    <Grid  Margin="20">
+        <fa:ImageAwesome Icon="Flag" VerticalAlignment="Center" HorizontalAlignment="Center" />
+    </Grid>
+</Window>

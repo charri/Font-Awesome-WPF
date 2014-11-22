@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>FontAwesome.WPF</id>
+        <version>4.2.1</version>
+        <authors>charri</authors>
+        <licenseUrl>https://github.com/charri/Font-Awesome-WPF/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/charri/Font-Awesome-WPF/</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>WPF controls for the iconic font and CSS toolkit Font Awesome.
+For examples https://github.com/charri/Font-Awesome-WPF
+
+Font Awesome: http://fortawesome.github.io/Font-Awesome/</description>
+        <releaseNotes>* Font Awesome v4.2</releaseNotes>
+        <tags>fontawesome</tags>
+        <frameworkAssemblies>
+            <frameworkAssembly assemblyName="PresentationCore" targetFramework="" />
+            <frameworkAssembly assemblyName="WindowsBase" targetFramework="" />
+        </frameworkAssemblies>
+    </metadata>
+    <files>
+        <file src="..\src\FontAwesome.WPF\bin\Release\FontAwesome.WPF.dll" target="lib\FontAwesome.WPF.dll" />
+        <file src="..\src\FontAwesome.WPF\bin\Release\FontAwesome.WPF.pdb" target="lib\FontAwesome.WPF.pdb" />
+        <file src="tools\init.ps1" target="tools\init.ps1" />
+    </files>
+</package>
