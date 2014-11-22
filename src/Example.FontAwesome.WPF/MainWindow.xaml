@@ -45,7 +45,7 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
 
@@ -98,19 +98,29 @@
                 Icon="{Binding Path=Icon}"
                 DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
                 FontSize="100" HorizontalAlignment="Center"
-                    Foreground="#ff222222"
-            />
+                    Foreground="#ff222222" />
 
             <TextBlock 
-                Text="{Binding Path=Icon, StringFormat='&lt;fa:FontAwesome Icon=&quot;{0}&quot; /&gt;'}"
+                Text="{Binding Path=Icon, StringFormat='&lt;fa:FontAwesome Icon=&quot;{0}&quot; FontSize=&quot;100&quot; /&gt;'}"
                 DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
                 TextAlignment="Center"
                 FontFamily="Consolas"
                 Margin="0,20"
                 />
 
-            
+            <fa:ImageAwesome 
+                    Icon="{Binding Path=Icon}" Width="50" Height="50" Foreground="Red"
+                    DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
+                    />
 
+            <TextBlock 
+                Text="{Binding Path=Icon, StringFormat='&lt;fa:ImageAwesome Icon=&quot;{0}&quot; Width=&quot;50&quot; Height=&quot;50&quot; /&gt;'}"
+                DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
+                TextAlignment="Center"
+                FontFamily="Consolas"
+                Margin="0,20"
+                />
+            
         </StackPanel>
     </Grid>
 </Window>
