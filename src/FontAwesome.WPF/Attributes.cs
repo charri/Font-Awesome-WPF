@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace Font_Awesome.WPF
+namespace FontAwesome.WPF
 {
     [AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]
     public class IconCategoryAttribute
         : Attribute
     {
+        /// <summary>
+        /// Icon's Category
+        /// </summary>
         public string Category { get; set; }
 
         public IconCategoryAttribute(string category)
@@ -16,4 +16,10 @@ namespace Font_Awesome.WPF
             Category = category;
         }
     }
+
+    [AttributeUsage(AttributeTargets.All, AllowMultiple = false, Inherited = false)]
+    public class IconAliasAttribute
+        : Attribute
+    { }
+    
 }

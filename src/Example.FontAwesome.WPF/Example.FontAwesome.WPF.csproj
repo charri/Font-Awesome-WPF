@@ -95,9 +95,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Font-Awesome-WPF\Font-Awesome-WPF.csproj">
+    <ProjectReference Include="..\FontAwesome.WPF\FontAwesome.WPF.csproj">
       <Project>{7006ac9f-d218-4d7b-98eb-5d2d91f69c57}</Project>
-      <Name>Font-Awesome-WPF</Name>
+      <Name>FontAwesome.WPF</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

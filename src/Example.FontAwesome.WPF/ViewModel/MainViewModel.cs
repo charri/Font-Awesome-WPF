@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using Font_Awesome.WPF;
+using FontAwesome.WPF;
 
 namespace Example.Font_Awesome_WPF.ViewModel
 {
