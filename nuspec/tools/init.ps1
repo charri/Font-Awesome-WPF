@@ -1,3 +1,3 @@
 param($installPath, $toolsPath, $package)
 
-Start-Process -Path "https://github.com/charri/Font-Awesome-WPF"
+$DTE.ItemOperations.Navigate("https://github.com/charri/Font-Awesome-WPF/?" + $package.Id + "=" + $package.Version)
