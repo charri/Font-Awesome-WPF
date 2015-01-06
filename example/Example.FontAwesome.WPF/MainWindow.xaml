@@ -57,6 +57,8 @@
             <TextBox Width="150" Margin="0,3" x:Name="FilterText" TextChanged="FilterText_OnTextChanged" />
             <Rectangle Margin="10,2" Fill="LightGray" Width="1" />
             <Button Content="Show Single" Margin="0,3" Click="ButtonBase_OnClick" />
+            <Button Content="Show Single Rotating" Margin="3,3,3,3" Click="ButtonBase_OnClickRotating" />
+
         </StackPanel>
 
 
