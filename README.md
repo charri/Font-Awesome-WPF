@@ -3,7 +3,7 @@
 WPF controls for the iconic font and CSS toolkit Font Awesome.
 
 Font Awesome: http://fortawesome.github.io/Font-Awesome/
-- Current Version: v4.2
+- Current Version: v4.2.0
 
 ## Getting started
 
@@ -23,7 +23,7 @@ Or search & install the package via the NuGet Package Manager.
 <Window x:Class="Example.FontAwesome.WPF.Single"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         Title="Single" Height="300" Width="300">
     <Grid  Margin="20">
         <fa:ImageAwesome Icon="Flag" VerticalAlignment="Center" HorizontalAlignment="Center" />
@@ -56,6 +56,14 @@ Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.Flag, Brushes.Black);
 ![alt text](/doc/screen-example.png "Example")
 
 Can be found in /example/ folder.
+
+## Spinning Icons
+```
+<fa:ImageAwesome Icon="Spinner" Spin="True" />
+```
+Further examples: http://fontawesome.io/examples/#spinning
+
+Please note: It is advised to use the ImageAwesome Control for spinning icon's due to a line height side-effect with glyph fonts. (The rotation does not occur in the middle of the icon.)
 
 ## Icons
 
