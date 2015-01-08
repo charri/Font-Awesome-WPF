@@ -15,7 +15,7 @@ namespace FontAwesome.WPF
     /// Represents a control that draws an FontAwesome icon as an image.
     /// </summary>
     public class ImageAwesome
-        : Image
+        : Image, ISpinable
     {
         /// <summary>
         /// FontAwesome FontFamily.
@@ -26,11 +26,6 @@ namespace FontAwesome.WPF
         /// </summary>
         private static readonly Typeface FontAwesomeTypeface = new Typeface(FontAwesomeFontFamily, FontStyles.Normal,
             FontWeights.Normal, FontStretches.Normal);
-        /// <summary>
-        /// The key used for storing the spinner Storyboard.
-        /// </summary>
-        private static readonly string StoryBoardName = String.Format("{0}-storyboard-spinner", typeof(ImageAwesome).Name);
-
         /// <summary>
         /// Identifies the FontAwesome.WPF.ImageAwesome.Foreground dependency property.
         /// </summary>
@@ -78,36 +73,10 @@ namespace FontAwesome.WPF
 
             if (imageAwesome == null) return;
 
-            if ((bool) e.NewValue)
-            {
-                var storyboard = new Storyboard();
-
-                var animation = new DoubleAnimation
-                {
-                    From = 0,
-                    To = 360,
-                    AutoReverse = false,
-                    RepeatBehavior = RepeatBehavior.Forever,
-                    Duration = new Duration(TimeSpan.FromSeconds(1))
-                };
-                storyboard.Children.Add(animation);
-
-                Storyboard.SetTarget(animation, imageAwesome);
-                Storyboard.SetTargetProperty(animation, new PropertyPath("(ImageAwesome.RenderTransform).(RotateTransform.Angle)"));
-
-                storyboard.Begin();
-                imageAwesome.Resources.Add(StoryBoardName, storyboard);
-            }
+            if((bool)e.NewValue)
+                imageAwesome.BeginSpin();
             else
-            {
-                var storyboard = imageAwesome.Resources[StoryBoardName] as Storyboard;
-
-                if (storyboard == null) return;
-
-                storyboard.Stop();
-
-                imageAwesome.Resources.Remove(StoryBoardName);
-            }
+                imageAwesome.StopSpin();
         }
         
         private static void OnIconPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -116,7 +85,7 @@ namespace FontAwesome.WPF
 
             if (imageAwesome == null) return;
 
-            d.SetValue(Image.SourceProperty, CreateImageSource(imageAwesome.Icon, imageAwesome.Foreground));
+            d.SetValue(SourceProperty, CreateImageSource(imageAwesome.Icon, imageAwesome.Foreground));
         }
 
         /// <summary>
@@ -134,7 +103,7 @@ namespace FontAwesome.WPF
             {
                 drawingContext.DrawText(
                     new FormattedText(charIcon, CultureInfo.InvariantCulture, FlowDirection.LeftToRight,
-                        FontAwesomeTypeface, 100, foregroundBrush), new Point(0, 0));
+                        FontAwesomeTypeface, 100, foregroundBrush) { TextAlignment = TextAlignment.Center }, new Point(0, 0));
             }
             return new DrawingImage(visual.Drawing);
         }

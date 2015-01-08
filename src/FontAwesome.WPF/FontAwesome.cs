@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
@@ -10,7 +12,7 @@ namespace FontAwesome.WPF
     /// Provides a lightweight control for displaying a FontAwesome icon as text.
     /// </summary>
     public class FontAwesome
-        : TextBlock
+        : TextBlock, ISpinable
     {
         /// <summary>
         /// FontAwesome FontFamily.
@@ -61,36 +63,10 @@ namespace FontAwesome.WPF
 
             if (fontAwesome == null) return;
 
-            if ((bool)e.NewValue)
-            {
-                var storyboard = new Storyboard();
-
-                var animation = new DoubleAnimation
-                {
-                    From = 0,
-                    To = 360,
-                    AutoReverse = false,
-                    RepeatBehavior = RepeatBehavior.Forever,
-                    Duration = new Duration(TimeSpan.FromSeconds(1))
-                };
-                storyboard.Children.Add(animation);
-
-                Storyboard.SetTarget(animation, fontAwesome);
-                Storyboard.SetTargetProperty(animation, new PropertyPath("(FontAwesome.RenderTransform).(RotateTransform.Angle)"));
-
-                storyboard.Begin();
-                fontAwesome.Resources.Add(StoryBoardName, storyboard);
-            }
+            if((bool)e.NewValue)
+                fontAwesome.BeginSpin();
             else
-            {
-                var storyboard = fontAwesome.Resources[StoryBoardName] as Storyboard;
-
-                if (storyboard == null) return;
-
-                storyboard.Stop();
-
-                fontAwesome.Resources.Remove(StoryBoardName);
-            }
+                fontAwesome.StopSpin();
         }
 
     }

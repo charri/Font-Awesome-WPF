@@ -50,12 +50,14 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlExtensions.cs" />
     <Compile Include="FontAwesome.cs" />
     <Compile Include="FontAwesomeIcon.cs">
       <LastGenOutput>FontAwesomeIcon.log</LastGenOutput>
     </Compile>
     <Compile Include="Attributes.cs" />
     <Compile Include="ImageAwesome.cs" />
+    <Compile Include="ISpinable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
