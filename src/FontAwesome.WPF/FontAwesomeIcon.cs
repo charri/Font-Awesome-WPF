@@ -10,9 +10,9 @@
 namespace FontAwesome.WPF {
 	using System.ComponentModel;
 	///<summary>
-	///	FontAwesome v4.2.0 by Dave Gandy (@davegandy)
+	///	FontAwesome v4.3.0 by Dave Gandy (@davegandy)
 	///	The iconic font and CSS toolkit
-	///	License http://fontawesome.io/license (Font: v4.2.0, C#: MIT License)
+	///	License http://fontawesome.io/license (Font: v4.3.0, C#: MIT License)
 	///</summary>
 	///<see cref="http://fontawesome.io" />
 	///<seealso cref="https://github.com/FortAwesome/Font-Awesome" />
@@ -496,7 +496,7 @@ namespace FontAwesome.WPF {
 		[IconCategory("Web Application Icons")]
 		[Description("Check Circle Outlined")]
 		CheckCircleOutlined = 0xf05d,
-		///<summary>ban (created: 1.0)</summary>
+		///<summary>ban (created: 1.0 - delete - remove - trash - hide - block - stop)</summary>
 		///<see cref="http://fontawesome.io/icon/ban/" />
 		[IconCategory("Web Application Icons")]
 		[Description("ban")]
@@ -1097,7 +1097,7 @@ namespace FontAwesome.WPF {
 		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.SortAscending" />
 		[IconAlias]
 		SortUp = SortAscending,
-		///<summary>Envelope (created: 2.0)</summary>
+		///<summary>Envelope (created: 2.0 - email - e-mail - letter - support - mail - notification)</summary>
 		///<see cref="http://fontawesome.io/icon/envelope/" />
 		[IconCategory("Web Application Icons")]
 		[Description("Envelope")]
@@ -1896,7 +1896,7 @@ namespace FontAwesome.WPF {
 		[IconCategory("Brand Icons")]
 		[Description("Apple")]
 		Apple = 0xf179,
-		///<summary>Windows (created: 3.2)</summary>
+		///<summary>Windows (created: 3.2 - microsoft)</summary>
 		///<see cref="http://fontawesome.io/icon/windows/" />
 		[IconCategory("Brand Icons")]
 		[Description("Windows")]
@@ -1941,11 +1941,15 @@ namespace FontAwesome.WPF {
 		[IconCategory("Web Application Icons")]
 		[Description("Male")]
 		Male = 0xf183,
-		///<summary>Gittip (created: 3.2)</summary>
-		///<see cref="http://fontawesome.io/icon/gittip/" />
+		///<summary>Gratipay (Gittip) (created: 3.2)</summary>
+		///<see cref="http://fontawesome.io/icon/gratipay/" />
 		[IconCategory("Brand Icons")]
-		[Description("Gittip")]
-		Gittip = 0xf184,
+		[Description("Gratipay (Gittip)")]
+		Gratipay = 0xf184,
+		///<summary>Alias of: Gratipay</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.Gratipay" />
+		[IconAlias]
+		Gittip = Gratipay,
 		///<summary>Sun Outlined (created: 3.2)</summary>
 		///<see cref="http://fontawesome.io/icon/sun-o/" />
 		[IconCategory("Web Application Icons")]
@@ -2010,11 +2014,11 @@ namespace FontAwesome.WPF {
 		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.CaretSquareOutlinedLeft" />
 		[IconAlias]
 		ToggleLeft = CaretSquareOutlinedLeft,
-		///<summary>Dot Circle O (created: 4.0)</summary>
+		///<summary>Dot Circle Outlined (created: 4.0)</summary>
 		///<see cref="http://fontawesome.io/icon/dot-circle-o/" />
 		[IconCategory("Web Application Icons"),IconCategory("Form Control Icons")]
-		[Description("Dot Circle O")]
-		DotCircleO = 0xf192,
+		[Description("Dot Circle Outlined")]
+		DotCircleOutlined = 0xf192,
 		///<summary>Wheelchair (created: 4.0)</summary>
 		///<see cref="http://fontawesome.io/icon/wheelchair/" />
 		[IconCategory("Web Application Icons"),IconCategory("Medical Icons")]

@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>FontAwesome.WPF</id>
-        <version>4.2.0.2</version>
+        <version>4.3.0.2-alpha</version>
         <authors>charri</authors>
         <licenseUrl>https://github.com/charri/Font-Awesome-WPF/blob/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/charri/Font-Awesome-WPF/</projectUrl>
@@ -11,7 +11,7 @@
 For examples https://github.com/charri/Font-Awesome-WPF
 
 Font Awesome: http://fortawesome.github.io/Font-Awesome/</description>
-        <releaseNotes>* Font Awesome v4.2.0</releaseNotes>
+        <releaseNotes>* Font Awesome v4.3.0</releaseNotes>
         <tags>fontawesome</tags>
         <frameworkAssemblies>
             <frameworkAssembly assemblyName="PresentationCore" targetFramework="" />

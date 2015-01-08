@@ -1,2 +1,2 @@
 del *.nupkg
-nuget pack FontAwesome.WPF.4.2.0.2.nuspec
+nuget pack FontAwesome.WPF.4.3.0.2.nuspec
