@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
+using System.Windows.Markup;
 
 
 [assembly: AssemblyTitle("Font Awesome WPF")]
@@ -8,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("charri")]
 [assembly: AssemblyProduct("FontAwesome.WPF")]
-[assembly: AssemblyCopyright("Copyright © 2014")]
+[assembly: AssemblyCopyright("Copyright © 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,10 +21,10 @@ using System.Runtime.InteropServices;
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("c1ef07d8-c739-421a-a811-278c9341677c")]
 
-//      Major Version : FontAwesome Major Version
-//      Minor Version : FontAwesome Minor Version
-//      Build Number  : FontAwesome.WPF Version
-//      Revision      : Auto Generated
+//      Version: First three numbers is FontAwesome version, the last number specifies code revision
 //
-[assembly: AssemblyVersion("4.2.1.*")]
-[assembly: AssemblyFileVersion("4.2.1.0")]
+[assembly: AssemblyVersion("4.2.0.*")]
+[assembly: AssemblyFileVersion("4.2.0.2")]
+
+[assembly: XmlnsPrefix("http://schemas.fontawesome.io/icons/", "fa")]
+[assembly: XmlnsDefinition("http://schemas.fontawesome.io/icons/", "FontAwesome.WPF")]

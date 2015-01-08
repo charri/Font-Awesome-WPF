@@ -16,11 +16,11 @@ using FontAwesome.WPF;
 namespace Example.FontAwesome.WPF
 {
     /// <summary>
-    /// Interaction logic for Single.xaml
+    /// Interaction logic for SingleAnimation.xaml
     /// </summary>
-    public partial class SingleRotating : Window
+    public partial class SingleAnimation : Window
     {
-        public SingleRotating()
+        public SingleAnimation()
         {
             InitializeComponent();
 

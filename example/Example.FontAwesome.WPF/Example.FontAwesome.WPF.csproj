@@ -60,8 +60,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="SingleRotating.xaml.cs">
-      <DependentUpon>SingleRotating.xaml</DependentUpon>
+    <Compile Include="SingleAnimation.xaml.cs">
+      <DependentUpon>SingleAnimation.xaml</DependentUpon>
     </Compile>
     <Compile Include="Single.xaml.cs">
       <DependentUpon>Single.xaml</DependentUpon>
@@ -79,7 +79,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SingleRotating.xaml">
+    <Page Include="SingleAnimation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
