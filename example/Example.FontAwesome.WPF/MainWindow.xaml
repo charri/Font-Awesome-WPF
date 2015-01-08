@@ -3,10 +3,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
         mc:Ignorable="d"
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         xmlns:viewModel="clr-namespace:Example.FontAwesome.WPF.ViewModel"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         Title="FontAwesome WPF Example" Height="600" Width="750">
     <Window.DataContext>
         <viewModel:MainViewModel/>
@@ -53,11 +53,14 @@
             <Slider Width="150" VerticalAlignment="Center" Value="30" Minimum="10" Maximum="50" x:Name="FontSizeSlider" />
             <TextBlock Text="{Binding ElementName=FontSizeSlider, Path=Value, StringFormat={}{0:00.00}}" VerticalAlignment="Center" />
             <Rectangle Margin="10,2" Fill="LightGray" Width="1" />
+            <Label Content="Spin: " />
+            <CheckBox VerticalAlignment="Center" x:Name="IconSpin" Margin="0,0,5,0" />
+            <Rectangle Margin="10,2" Fill="LightGray" Width="1" />
             <Label Content="Filter: " />
             <TextBox Width="150" Margin="0,3" x:Name="FilterText" TextChanged="FilterText_OnTextChanged" />
             <Rectangle Margin="10,2" Fill="LightGray" Width="1" />
             <Button Content="Show Single" Margin="0,3" Click="ButtonBase_OnClick" />
-            <Button Content="Show Single Rotating" Margin="3,3,3,3" Click="ButtonBase_OnClickRotating" />
+            <Button Content="Show Animated" Margin="3,3,3,3" Click="ButtonBase_OnClickAnimated" />
 
         </StackPanel>
 
@@ -98,10 +101,10 @@
                 />
 
             <fa:FontAwesome 
-                Icon="{Binding Path=Icon}"
-                DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
-                FontSize="100" HorizontalAlignment="Center"
-                    Foreground="#ff222222" />
+                    Icon="{Binding Path=Icon}"
+                    DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
+                    FontSize="100" HorizontalAlignment="Center"
+                    Spin="{Binding ElementName=IconSpin, Path=IsChecked}" Foreground="#ff222222" />
 
             <TextBlock 
                 Text="{Binding Path=Icon, StringFormat='&lt;fa:FontAwesome Icon=&quot;{0}&quot; FontSize=&quot;100&quot; /&gt;'}"
@@ -113,9 +116,10 @@
                 />
 
             <fa:ImageAwesome 
-                    Icon="{Binding Path=Icon}" Width="50" Height="50" Foreground="Red"
-                    DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
-                    />
+                Icon="{Binding Path=Icon}" Width="50" Height="50" Foreground="Red"
+                Spin="{Binding ElementName=IconSpin, Path=IsChecked}"
+                DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
+                />
 
             <TextBlock 
                 Text="{Binding Path=Icon, StringFormat='&lt;fa:ImageAwesome Icon=&quot;{0}&quot; Width=&quot;50&quot; Height=&quot;50&quot; /&gt;'}"

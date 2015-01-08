@@ -40,10 +40,12 @@ namespace Example.FontAwesome.WPF
             single.Show();
         }
 
-        private void ButtonBase_OnClickRotating(object sender, RoutedEventArgs e)
+        private void ButtonBase_OnClickAnimated(object sender, RoutedEventArgs e)
         {
-            var singleRotating = new SingleRotating();
+            var singleRotating = new SingleAnimation();
             singleRotating.Show();
         }
+
+        
     }
 }
