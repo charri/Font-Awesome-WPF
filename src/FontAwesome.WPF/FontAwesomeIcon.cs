@@ -10,9 +10,9 @@
 namespace FontAwesome.WPF {
 	using System.ComponentModel;
 	///<summary>
-	///	FontAwesome v4.2.0 by Dave Gandy (@davegandy)
+	///	FontAwesome v4.3.0 by Dave Gandy (@davegandy)
 	///	The iconic font and CSS toolkit
-	///	License http://fontawesome.io/license (Font: v4.2.0, C#: MIT License)
+	///	License http://fontawesome.io/license (Font: v4.3.0, C#: MIT License)
 	///</summary>
 	///<see cref="http://fontawesome.io" />
 	///<seealso cref="https://github.com/FortAwesome/Font-Awesome" />
@@ -41,7 +41,7 @@ namespace FontAwesome.WPF {
 		EnvelopeOutlined = 0xf003,
 		///<summary>Heart (created: 1.0)</summary>
 		///<see cref="http://fontawesome.io/icon/heart/" />
-		[IconCategory("Web Application Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Medical Icons")]
 		[Description("Heart")]
 		Heart = 0xf004,
 		///<summary>Star (created: 1.0)</summary>
@@ -496,7 +496,7 @@ namespace FontAwesome.WPF {
 		[IconCategory("Web Application Icons")]
 		[Description("Check Circle Outlined")]
 		CheckCircleOutlined = 0xf05d,
-		///<summary>ban (created: 1.0)</summary>
+		///<summary>ban (created: 1.0 - delete - remove - trash - hide - block - stop)</summary>
 		///<see cref="http://fontawesome.io/icon/ban/" />
 		[IconCategory("Web Application Icons")]
 		[Description("ban")]
@@ -596,7 +596,7 @@ namespace FontAwesome.WPF {
 		Warning = ExclamationTriangle,
 		///<summary>plane (created: 1.0)</summary>
 		///<see cref="http://fontawesome.io/icon/plane/" />
-		[IconCategory("Web Application Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Transportation Icons")]
 		[Description("plane")]
 		Plane = 0xf072,
 		///<summary>calendar (created: 1.0)</summary>
@@ -719,7 +719,7 @@ namespace FontAwesome.WPF {
 		StarHalf = 0xf089,
 		///<summary>Heart Outlined (created: 1.0)</summary>
 		///<see cref="http://fontawesome.io/icon/heart-o/" />
-		[IconCategory("Web Application Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Medical Icons")]
 		[Description("Heart Outlined")]
 		HeartOutlined = 0xf08a,
 		///<summary>Sign Out (created: 1.0)</summary>
@@ -797,6 +797,10 @@ namespace FontAwesome.WPF {
 		[IconCategory("Brand Icons")]
 		[Description("Facebook")]
 		Facebook = 0xf09a,
+		///<summary>Alias of: Facebook</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.Facebook" />
+		[IconAlias]
+		FacebookF = Facebook,
 		///<summary>GitHub (created: 2.0)</summary>
 		///<see cref="http://fontawesome.io/icon/github/" />
 		[IconCategory("Brand Icons")]
@@ -1017,7 +1021,7 @@ namespace FontAwesome.WPF {
 		Magic = 0xf0d0,
 		///<summary>truck (created: 2.0)</summary>
 		///<see cref="http://fontawesome.io/icon/truck/" />
-		[IconCategory("Web Application Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Transportation Icons")]
 		[Description("truck")]
 		Truck = 0xf0d1,
 		///<summary>Pinterest (created: 2.0)</summary>
@@ -1097,7 +1101,7 @@ namespace FontAwesome.WPF {
 		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.SortAscending" />
 		[IconAlias]
 		SortUp = SortAscending,
-		///<summary>Envelope (created: 2.0)</summary>
+		///<summary>Envelope (created: 2.0 - email - e-mail - letter - support - mail - notification)</summary>
 		///<see cref="http://fontawesome.io/icon/envelope/" />
 		[IconCategory("Web Application Icons")]
 		[Description("Envelope")]
@@ -1239,7 +1243,7 @@ namespace FontAwesome.WPF {
 		HospitalOutlined = 0xf0f8,
 		///<summary>ambulance (created: 3.0)</summary>
 		///<see cref="http://fontawesome.io/icon/ambulance/" />
-		[IconCategory("Medical Icons")]
+		[IconCategory("Medical Icons"),IconCategory("Transportation Icons")]
 		[Description("ambulance")]
 		Ambulance = 0xf0f9,
 		///<summary>medkit (created: 3.0)</summary>
@@ -1249,7 +1253,7 @@ namespace FontAwesome.WPF {
 		Medkit = 0xf0fa,
 		///<summary>fighter-jet (created: 3.0)</summary>
 		///<see cref="http://fontawesome.io/icon/fighter-jet/" />
-		[IconCategory("Web Application Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Transportation Icons")]
 		[Description("fighter-jet")]
 		FighterJet = 0xf0fb,
 		///<summary>beer (created: 3.0)</summary>
@@ -1529,7 +1533,7 @@ namespace FontAwesome.WPF {
 		FireExtinguisher = 0xf134,
 		///<summary>rocket (created: 3.1)</summary>
 		///<see cref="http://fontawesome.io/icon/rocket/" />
-		[IconCategory("Web Application Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Transportation Icons")]
 		[Description("rocket")]
 		Rocket = 0xf135,
 		///<summary>MaxCDN (created: 3.1)</summary>
@@ -1896,7 +1900,7 @@ namespace FontAwesome.WPF {
 		[IconCategory("Brand Icons")]
 		[Description("Apple")]
 		Apple = 0xf179,
-		///<summary>Windows (created: 3.2)</summary>
+		///<summary>Windows (created: 3.2 - microsoft)</summary>
 		///<see cref="http://fontawesome.io/icon/windows/" />
 		[IconCategory("Brand Icons")]
 		[Description("Windows")]
@@ -1941,11 +1945,15 @@ namespace FontAwesome.WPF {
 		[IconCategory("Web Application Icons")]
 		[Description("Male")]
 		Male = 0xf183,
-		///<summary>Gittip (created: 3.2)</summary>
-		///<see cref="http://fontawesome.io/icon/gittip/" />
+		///<summary>Gratipay (Gittip) (created: 3.2)</summary>
+		///<see cref="http://fontawesome.io/icon/gratipay/" />
 		[IconCategory("Brand Icons")]
-		[Description("Gittip")]
-		Gittip = 0xf184,
+		[Description("Gratipay (Gittip)")]
+		Gratipay = 0xf184,
+		///<summary>Alias of: Gratipay</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.Gratipay" />
+		[IconAlias]
+		Gittip = Gratipay,
 		///<summary>Sun Outlined (created: 3.2)</summary>
 		///<see cref="http://fontawesome.io/icon/sun-o/" />
 		[IconCategory("Web Application Icons")]
@@ -2010,14 +2018,14 @@ namespace FontAwesome.WPF {
 		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.CaretSquareOutlinedLeft" />
 		[IconAlias]
 		ToggleLeft = CaretSquareOutlinedLeft,
-		///<summary>Dot Circle O (created: 4.0)</summary>
+		///<summary>Dot Circle Outlined (created: 4.0)</summary>
 		///<see cref="http://fontawesome.io/icon/dot-circle-o/" />
 		[IconCategory("Web Application Icons"),IconCategory("Form Control Icons")]
-		[Description("Dot Circle O")]
-		DotCircleO = 0xf192,
+		[Description("Dot Circle Outlined")]
+		DotCircleOutlined = 0xf192,
 		///<summary>Wheelchair (created: 4.0)</summary>
 		///<see cref="http://fontawesome.io/icon/wheelchair/" />
-		[IconCategory("Web Application Icons"),IconCategory("Medical Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Medical Icons"),IconCategory("Transportation Icons")]
 		[Description("Wheelchair")]
 		Wheelchair = 0xf193,
 		///<summary>Vimeo Square (created: 4.0)</summary>
@@ -2037,7 +2045,7 @@ namespace FontAwesome.WPF {
 		PlusSquareOutlined = 0xf196,
 		///<summary>Space Shuttle (created: 4.1)</summary>
 		///<see cref="http://fontawesome.io/icon/space-shuttle/" />
-		[IconCategory("Web Application Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Transportation Icons")]
 		[Description("Space Shuttle")]
 		SpaceShuttle = 0xf197,
 		///<summary>Slack Logo (created: 4.1)</summary>
@@ -2209,7 +2217,7 @@ namespace FontAwesome.WPF {
 		Recycle = 0xf1b8,
 		///<summary>Car (created: 4.1)</summary>
 		///<see cref="http://fontawesome.io/icon/car/" />
-		[IconCategory("Web Application Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Transportation Icons")]
 		[Description("Car")]
 		Car = 0xf1b9,
 		///<summary>Alias of: Car</summary>
@@ -2218,7 +2226,7 @@ namespace FontAwesome.WPF {
 		Automobile = Car,
 		///<summary>Taxi (created: 4.1)</summary>
 		///<see cref="http://fontawesome.io/icon/taxi/" />
-		[IconCategory("Web Application Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Transportation Icons")]
 		[Description("Taxi")]
 		Taxi = 0xf1ba,
 		///<summary>Alias of: Taxi</summary>
@@ -2433,9 +2441,13 @@ namespace FontAwesome.WPF {
 		History = 0xf1da,
 		///<summary>Circle Outlined Thin (created: 4.1)</summary>
 		///<see cref="http://fontawesome.io/icon/circle-thin/" />
-		[IconCategory("Web Application Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Gender Icons")]
 		[Description("Circle Outlined Thin")]
 		CircleOutlinedThin = 0xf1db,
+		///<summary>Alias of: CircleOutlinedThin</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.CircleOutlinedThin" />
+		[IconAlias]
+		Genderless = CircleOutlinedThin,
 		///<summary>header (created: 4.1)</summary>
 		///<see cref="http://fontawesome.io/icon/header/" />
 		[IconCategory("Text Editor Icons")]
@@ -2637,12 +2649,12 @@ namespace FontAwesome.WPF {
 		ToggleOn = 0xf205,
 		///<summary>Bicycle (created: 4.2)</summary>
 		///<see cref="http://fontawesome.io/icon/bicycle/" />
-		[IconCategory("Web Application Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Transportation Icons")]
 		[Description("Bicycle")]
 		Bicycle = 0xf206,
 		///<summary>Bus (created: 4.2)</summary>
 		///<see cref="http://fontawesome.io/icon/bus/" />
-		[IconCategory("Web Application Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Transportation Icons")]
 		[Description("Bus")]
 		Bus = 0xf207,
 		///<summary>ioxhost (created: 4.2)</summary>
@@ -2674,5 +2686,209 @@ namespace FontAwesome.WPF {
 		[IconCategory("Brand Icons")]
 		[Description("meanpath")]
 		Meanpath = 0xf20c,
+		///<summary>BuySellAds (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/buysellads/" />
+		[IconCategory("Brand Icons")]
+		[Description("BuySellAds")]
+		Buysellads = 0xf20d,
+		///<summary>Connect Develop (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/connectdevelop/" />
+		[IconCategory("Brand Icons")]
+		[Description("Connect Develop")]
+		ConnectDevelop = 0xf20e,
+		///<summary>DashCube (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/dashcube/" />
+		[IconCategory("Brand Icons")]
+		[Description("DashCube")]
+		Dashcube = 0xf210,
+		///<summary>Forumbee (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/forumbee/" />
+		[IconCategory("Brand Icons")]
+		[Description("Forumbee")]
+		Forumbee = 0xf211,
+		///<summary>Leanpub (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/leanpub/" />
+		[IconCategory("Brand Icons")]
+		[Description("Leanpub")]
+		Leanpub = 0xf212,
+		///<summary>Sellsy (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/sellsy/" />
+		[IconCategory("Brand Icons")]
+		[Description("Sellsy")]
+		Sellsy = 0xf213,
+		///<summary>Shirts in Bulk (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/shirtsinbulk/" />
+		[IconCategory("Brand Icons")]
+		[Description("Shirts in Bulk")]
+		ShirtsInBulk = 0xf214,
+		///<summary>SimplyBuilt (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/simplybuilt/" />
+		[IconCategory("Brand Icons")]
+		[Description("SimplyBuilt")]
+		Simplybuilt = 0xf215,
+		///<summary>skyatlas (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/skyatlas/" />
+		[IconCategory("Brand Icons")]
+		[Description("skyatlas")]
+		Skyatlas = 0xf216,
+		///<summary>Add to Shopping Cart (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/cart-plus/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Add to Shopping Cart")]
+		AddToShoppingCart = 0xf217,
+		///<summary>Shopping Cart Arrow Down (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/cart-arrow-down/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Shopping Cart Arrow Down")]
+		ShoppingCartArrowDown = 0xf218,
+		///<summary>Diamond (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/diamond/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Diamond")]
+		Diamond = 0xf219,
+		///<summary>Ship (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/ship/" />
+		[IconCategory("Web Application Icons"),IconCategory("Transportation Icons")]
+		[Description("Ship")]
+		Ship = 0xf21a,
+		///<summary>User Secret (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/user-secret/" />
+		[IconCategory("Web Application Icons")]
+		[Description("User Secret")]
+		UserSecret = 0xf21b,
+		///<summary>Motorcycle (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/motorcycle/" />
+		[IconCategory("Web Application Icons"),IconCategory("Transportation Icons")]
+		[Description("Motorcycle")]
+		Motorcycle = 0xf21c,
+		///<summary>Street View (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/street-view/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Street View")]
+		StreetView = 0xf21d,
+		///<summary>Heartbeat (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/heartbeat/" />
+		[IconCategory("Web Application Icons"),IconCategory("Medical Icons")]
+		[Description("Heartbeat")]
+		Heartbeat = 0xf21e,
+		///<summary>Venus (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/venus/" />
+		[IconCategory("Gender Icons")]
+		[Description("Venus")]
+		Venus = 0xf221,
+		///<summary>Mars (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/mars/" />
+		[IconCategory("Gender Icons")]
+		[Description("Mars")]
+		Mars = 0xf222,
+		///<summary>Mercury (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/mercury/" />
+		[IconCategory("Gender Icons")]
+		[Description("Mercury")]
+		Mercury = 0xf223,
+		///<summary>Transgender (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/transgender/" />
+		[IconCategory("Gender Icons")]
+		[Description("Transgender")]
+		Transgender = 0xf224,
+		///<summary>Transgender Alt (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/transgender-alt/" />
+		[IconCategory("Gender Icons")]
+		[Description("Transgender Alt")]
+		TransgenderAlt = 0xf225,
+		///<summary>Venus Double (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/venus-double/" />
+		[IconCategory("Gender Icons")]
+		[Description("Venus Double")]
+		VenusDouble = 0xf226,
+		///<summary>Mars Double (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/mars-double/" />
+		[IconCategory("Gender Icons")]
+		[Description("Mars Double")]
+		MarsDouble = 0xf227,
+		///<summary>Venus Mars (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/venus-mars/" />
+		[IconCategory("Gender Icons")]
+		[Description("Venus Mars")]
+		VenusMars = 0xf228,
+		///<summary>Mars Stroke (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/mars-stroke/" />
+		[IconCategory("Gender Icons")]
+		[Description("Mars Stroke")]
+		MarsStroke = 0xf229,
+		///<summary>Mars Stroke Vertical (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/mars-stroke-v/" />
+		[IconCategory("Gender Icons")]
+		[Description("Mars Stroke Vertical")]
+		MarsStrokeVertical = 0xf22a,
+		///<summary>Mars Stroke Horizontal (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/mars-stroke-h/" />
+		[IconCategory("Gender Icons")]
+		[Description("Mars Stroke Horizontal")]
+		MarsStrokeHorizontal = 0xf22b,
+		///<summary>Neuter (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/neuter/" />
+		[IconCategory("Gender Icons")]
+		[Description("Neuter")]
+		Neuter = 0xf22c,
+		///<summary>Facebook Official (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/facebook-official/" />
+		[IconCategory("Brand Icons")]
+		[Description("Facebook Official")]
+		FacebookOfficial = 0xf230,
+		///<summary>Pinterest P (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/pinterest-p/" />
+		[IconCategory("Brand Icons")]
+		[Description("Pinterest P")]
+		PinterestP = 0xf231,
+		///<summary>What's App (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/whatsapp/" />
+		[IconCategory("Brand Icons")]
+		[Description("What's App")]
+		WhatsApp = 0xf232,
+		///<summary>Server (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/server/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Server")]
+		Server = 0xf233,
+		///<summary>Add User (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/user-plus/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Add User")]
+		AddUser = 0xf234,
+		///<summary>Remove User (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/user-times/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Remove User")]
+		RemoveUser = 0xf235,
+		///<summary>Bed (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/bed/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Bed")]
+		Bed = 0xf236,
+		///<summary>Alias of: Bed</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.Bed" />
+		[IconAlias]
+		Hotel = Bed,
+		///<summary>Viacoin (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/viacoin/" />
+		[IconCategory("Brand Icons")]
+		[Description("Viacoin")]
+		Viacoin = 0xf237,
+		///<summary>Train (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/train/" />
+		[IconCategory("Transportation Icons")]
+		[Description("Train")]
+		Train = 0xf238,
+		///<summary>Subway (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/subway/" />
+		[IconCategory("Transportation Icons")]
+		[Description("Subway")]
+		Subway = 0xf239,
+		///<summary>Medium (created: 4.3)</summary>
+		///<see cref="http://fontawesome.io/icon/medium/" />
+		[IconCategory("Brand Icons")]
+		[Description("Medium")]
+		Medium = 0xf23a,
 	}
 }

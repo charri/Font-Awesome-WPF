@@ -132,7 +132,7 @@ namespace FontAwesome.WPF.Generate
                 var textInfo = cultureInfo.TextInfo;
 
                 text = textInfo.ToTitleCase(text.Replace("-", " "));
-                text = text.Replace(" ", String.Empty).Replace(".", String.Empty);
+                text = text.Replace(" ", String.Empty).Replace(".", String.Empty).Replace("'", String.Empty);
                 text = REG_PROP.Replace(text, String.Empty);
                 return text;
             }
