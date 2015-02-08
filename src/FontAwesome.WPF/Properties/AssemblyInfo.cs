@@ -23,8 +23,8 @@ using System.Windows.Markup;
 
 //      Version: First three numbers is FontAwesome version, the last number specifies code revision
 //
-[assembly: AssemblyVersion("4.2.0.*")]
-[assembly: AssemblyFileVersion("4.2.0.2")]
+[assembly: AssemblyVersion("4.3.0.*")]
+[assembly: AssemblyFileVersion("4.3.0.2")]
 
 [assembly: XmlnsPrefix("http://schemas.fontawesome.io/icons/", "fa")]
 [assembly: XmlnsDefinition("http://schemas.fontawesome.io/icons/", "FontAwesome.WPF")]
