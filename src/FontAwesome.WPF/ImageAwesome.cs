@@ -15,17 +15,8 @@ namespace FontAwesome.WPF
     /// Represents a control that draws an FontAwesome icon as an image.
     /// </summary>
     public class ImageAwesome
-        : Image, ISpinable
+        : System.Windows.Controls.Image, ISpinable
     {
-        /// <summary>
-        /// FontAwesome FontFamily.
-        /// </summary>
-        private static readonly FontFamily FontAwesomeFontFamily = new FontFamily(new Uri("pack://application:,,,/FontAwesome.WPF;component/"), "./#FontAwesome");
-        /// <summary>
-        /// Typeface used to generate FontAwesome icon.
-        /// </summary>
-        private static readonly Typeface FontAwesomeTypeface = new Typeface(FontAwesomeFontFamily, FontStyles.Normal,
-            FontWeights.Normal, FontStretches.Normal);
         /// <summary>
         /// Identifies the FontAwesome.WPF.ImageAwesome.Foreground dependency property.
         /// </summary>
@@ -93,17 +84,19 @@ namespace FontAwesome.WPF
         /// </summary>
         /// <param name="icon">The FontAwesome icon to be drawn.</param>
         /// <param name="foregroundBrush">The System.Windows.Media.Brush to be used as the foreground.</param>
+        /// <param name="strokePen">The System.Windows.Media.Pen with which to stroke the System.Windows.Media.Geometry. This is optional, and can be null. If the pen is null, no stroke is drawn.</param>
         /// <returns>A new System.Windows.Media.ImageSource</returns>
-        public static ImageSource CreateImageSource(FontAwesomeIcon icon, Brush foregroundBrush)
+        public static ImageSource CreateImageSource(FontAwesomeIcon icon, Brush foregroundBrush, Pen strokePen = null)
         {
-            var charIcon = char.ConvertFromUtf32((int)icon);
+            //var charIcon = char.ConvertFromUtf32((int)icon);
 
             var visual = new DrawingVisual();
             using (var drawingContext = visual.RenderOpen())
             {
-                drawingContext.DrawText(
+                drawingContext.DrawGeometry(foregroundBrush, strokePen, FontAwesomeControl.Create(icon).Data);
+                /*drawingContext.DrawText(
                     new FormattedText(charIcon, CultureInfo.InvariantCulture, FlowDirection.LeftToRight,
-                        FontAwesomeTypeface, 100, foregroundBrush) { TextAlignment = TextAlignment.Center }, new Point(0, 0));
+                        FontAwesomeTypeface, 100, foregroundBrush) { TextAlignment = TextAlignment.Center }, new Point(0, 0));*/
             }
             return new DrawingImage(visual.Drawing);
         }

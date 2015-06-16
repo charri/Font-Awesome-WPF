@@ -52,10 +52,13 @@
   <ItemGroup>
     <Compile Include="ControlExtensions.cs" />
     <Compile Include="FontAwesome.cs" />
+    <Compile Include="FontAwesomeControls.cs" />
     <Compile Include="FontAwesomeIcon.cs">
       <LastGenOutput>FontAwesomeIcon.log</LastGenOutput>
     </Compile>
     <Compile Include="Attributes.cs" />
+    <Compile Include="FontAwesomeControl.cs" />
+    <Compile Include="FontAwesomeControl.Generated.cs" />
     <Compile Include="ImageAwesome.cs" />
     <Compile Include="ISpinable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -11,6 +11,7 @@ namespace FontAwesome.WPF
     /// <summary>
     /// Provides a lightweight control for displaying a FontAwesome icon as text.
     /// </summary>
+    [Obsolete]
     public class FontAwesome
         : TextBlock, ISpinable
     {
