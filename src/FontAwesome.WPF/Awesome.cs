@@ -41,27 +41,19 @@ namespace FontAwesome.WPF
 
         private static void ContentChanged(DependencyObject sender, DependencyPropertyChangedEventArgs evt)
         {
-            if (sender is ContentControl)
-            {
-                ContentControl target = sender as ContentControl;
+            // If target is not a ContenControl just ignore: Awesome.Content property can only be set on a ContentControl element
+            if (!(sender is ContentControl)) return;
 
-                if (evt.NewValue is FontAwesomeIcon)
-                {
-                    FontAwesomeIcon symbolIcon = (FontAwesomeIcon)evt.NewValue;
-                    int symbolCode = (int)symbolIcon;
-                    char symbolChar = (char)symbolCode;
+            ContentControl target = sender as ContentControl;
 
-                    target.Content = symbolChar;
-                }
-                else
-                {
-                    // Just ignore, Awesome.Content property can only be set to a FontAwesomeIcon value
-                }
-            }
-            else
-            {
-                // Just ignore, Awesome.Content property can only be set on a ContentControl element
-            }
+            // If value is not a FontAwesomeIcon just ignore: Awesome.Content property can only be set to a FontAwesomeIcon value
+            if (!(evt.NewValue is FontAwesomeIcon)) return;
+
+            FontAwesomeIcon symbolIcon = (FontAwesomeIcon)evt.NewValue;
+            int symbolCode = (int)symbolIcon;
+            char symbolChar = (char)symbolCode;
+
+            target.Content = symbolChar;
         }
 
         private static readonly FontAwesomeIcon _defaultContent = FontAwesomeIcon.None;
