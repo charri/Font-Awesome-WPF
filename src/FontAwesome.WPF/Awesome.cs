@@ -7,6 +7,9 @@ using System.Windows.Controls;
 
 namespace FontAwesome.WPF
 {
+    /// <summary>
+    /// Provides attached properties to set FontAwesome icons on controls.
+    /// </summary>
     public static class Awesome
     {
         /// <summary>

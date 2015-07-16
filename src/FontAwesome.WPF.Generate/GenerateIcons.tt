@@ -37,17 +37,18 @@
 	WriteLine("///	{0}", interop.Config.Tagline);
 	WriteLine("///	License http://fontawesome.io/license (Font: {0}, C#: MIT License)", interop.Config.DocBlob, interop.Config.Tagline);
 	WriteLine("///</summary>");
-	WriteLine("///<see cref=\"{0}\" />", interop.Config.Url);
-	WriteLine("///<seealso cref=\"{0}\" />", interop.Config.Github.Url);
-	WriteLine("///<seealso cref=\"https://github.com/charri/Font-Awesome-WPF\" />");
+	WriteLine("///<see href=\"{0}\" />", interop.Config.Url);
+	WriteLine("///<seealso href=\"{0}\" />", interop.Config.Github.Url);
+	WriteLine("///<seealso href=\"https://github.com/charri/Font-Awesome-WPF\" />");
 	WriteLine("public enum FontAwesomeIcon {");
 	PushIndent("\t");
+	WriteLine("///<summary>Set this value to show no icon.</summary>");
 	WriteLine("None = 0x0,");
 
 
 	foreach(var item in interop.Items) {
 		WriteLine("///<summary>{0} (created: {1})</summary>", item.Name, item.Created);
-		WriteLine("///<see cref=\"{0}\" />", String.Format(baseUrl, item.Id));
+		WriteLine("///<see href=\"{0}\" />", String.Format(baseUrl, item.Id));
 		if(item.Categories != null && item.Categories.Count > 0) {
             var sb = new StringBuilder();
 			foreach(var cat in item.Categories) {
