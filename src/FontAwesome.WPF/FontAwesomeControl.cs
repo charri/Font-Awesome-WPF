@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Media3D;
 using System.Windows.Shapes;
 
 namespace FontAwesome.WPF
@@ -13,6 +14,7 @@ namespace FontAwesome.WPF
         protected FontAwesomeControl()
         {
             SetValue(StretchProperty, Stretch.Uniform);
+            SetValue(RenderTransformProperty, new ScaleTransform(1.0, -1.0));
         }
 
         #region Dynamic Properties 

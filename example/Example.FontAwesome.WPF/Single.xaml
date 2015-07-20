@@ -4,6 +4,7 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         Title="Single" Height="300" Width="300">
     <Grid  Margin="20">
-        <fa:ImageAwesome Icon="Flag" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <!--<fa:ImageAwesome Icon="Flag" VerticalAlignment="Center" HorizontalAlignment="Center" />-->
+        <fa:Glass Fill="Black" />
     </Grid>
 </Window>

@@ -37,9 +37,9 @@
     <ApplicationIcon>flag.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FontAwesome.WPF, Version=4.2.1.28408, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="FontAwesome.WPF, Version=4.2.0.41266, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\FontAwesome.WPF.4.2.1\lib\FontAwesome.WPF.dll</HintPath>
+      <HintPath>..\..\src\FontAwesome.WPF\bin\Debug\FontAwesome.WPF.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
