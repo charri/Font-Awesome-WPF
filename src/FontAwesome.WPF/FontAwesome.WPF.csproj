@@ -50,6 +50,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Awesome.cs" />
     <Compile Include="ControlExtensions.cs" />
     <Compile Include="FontAwesome.cs" />
     <Compile Include="FontAwesomeIcon.cs">

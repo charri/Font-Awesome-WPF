@@ -3,7 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         Title="Single" Height="300" Width="300">
-    <Grid  Margin="20">
-        <fa:ImageAwesome Icon="Flag" VerticalAlignment="Center" HorizontalAlignment="Center" />
-    </Grid>
+    <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="20">
+        <fa:ImageAwesome Icon="Flag" 
+                         VerticalAlignment="Center" HorizontalAlignment="Center" />
+
+        <!-- Enable if NuGet package is updated with Awesome.Content property -->
+        <!--
+        <Button fa:Awesome.Content="Flag" 
+                TextElement.FontFamily="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome" 
+                TextElement.FontSize="28pt"  Width="64" Height="64" 
+                VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 30, 0, 0" Background="White"/>
+        -->
+        <!-- NOTE: VS 2013 XAML Designer will show an empty box instead of actual glyph. It works fine at runtime. -->
+    </StackPanel>
 </Window>
