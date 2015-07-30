@@ -10,9 +10,9 @@
 namespace FontAwesome.WPF {
 	using System.ComponentModel;
 	///<summary>
-	///	FontAwesome v4.3.0 by Dave Gandy (@davegandy)
+	///	FontAwesome v4.4.0 by Dave Gandy (@davegandy)
 	///	The iconic font and CSS toolkit
-	///	License http://fontawesome.io/license (Font: v4.3.0, C#: MIT License)
+	///	License http://fontawesome.io/license (Font: v4.4.0, C#: MIT License)
 	///</summary>
 	///<see href="http://fontawesome.io" />
 	///<seealso href="https://github.com/FortAwesome/Font-Awesome" />
@@ -497,7 +497,7 @@ namespace FontAwesome.WPF {
 		[IconCategory("Web Application Icons")]
 		[Description("Check Circle Outlined")]
 		CheckCircleOutlined = 0xf05d,
-		///<summary>ban (created: 1.0 - delete - remove - trash - hide - block - stop)</summary>
+		///<summary>ban (created: 1.0)</summary>
 		///<see href="http://fontawesome.io/icon/ban/" />
 		[IconCategory("Web Application Icons")]
 		[Description("ban")]
@@ -607,7 +607,7 @@ namespace FontAwesome.WPF {
 		Calendar = 0xf073,
 		///<summary>random (created: 1.0)</summary>
 		///<see href="http://fontawesome.io/icon/random/" />
-		[IconCategory("Web Application Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Video Player Icons")]
 		[Description("random")]
 		Random = 0xf074,
 		///<summary>comment (created: 1.0)</summary>
@@ -705,12 +705,12 @@ namespace FontAwesome.WPF {
 		Comments = 0xf086,
 		///<summary>Thumbs Up Outlined (created: 1.0)</summary>
 		///<see href="http://fontawesome.io/icon/thumbs-o-up/" />
-		[IconCategory("Web Application Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Hand Icons")]
 		[Description("Thumbs Up Outlined")]
 		ThumbsUpOutlined = 0xf087,
 		///<summary>Thumbs Down Outlined (created: 1.0)</summary>
 		///<see href="http://fontawesome.io/icon/thumbs-o-down/" />
-		[IconCategory("Web Application Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Hand Icons")]
 		[Description("Thumbs Down Outlined")]
 		ThumbsDownOutlined = 0xf088,
 		///<summary>star-half (created: 1.0)</summary>
@@ -822,6 +822,10 @@ namespace FontAwesome.WPF {
 		[IconCategory("Web Application Icons")]
 		[Description("rss")]
 		Rss = 0xf09e,
+		///<summary>Alias of: Rss</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.Rss" />
+		[IconAlias]
+		Feed = Rss,
 		///<summary>HDD (created: 2.0)</summary>
 		///<see href="http://fontawesome.io/icon/hdd-o/" />
 		[IconCategory("Web Application Icons")]
@@ -844,22 +848,22 @@ namespace FontAwesome.WPF {
 		Certificate = 0xf0a3,
 		///<summary>Hand Outlined Right (created: 2.0)</summary>
 		///<see href="http://fontawesome.io/icon/hand-o-right/" />
-		[IconCategory("Directional Icons")]
+		[IconCategory("Directional Icons"),IconCategory("Hand Icons")]
 		[Description("Hand Outlined Right")]
 		HandOutlinedRight = 0xf0a4,
 		///<summary>Hand Outlined Left (created: 2.0)</summary>
 		///<see href="http://fontawesome.io/icon/hand-o-left/" />
-		[IconCategory("Directional Icons")]
+		[IconCategory("Directional Icons"),IconCategory("Hand Icons")]
 		[Description("Hand Outlined Left")]
 		HandOutlinedLeft = 0xf0a5,
 		///<summary>Hand Outlined Up (created: 2.0)</summary>
 		///<see href="http://fontawesome.io/icon/hand-o-up/" />
-		[IconCategory("Directional Icons")]
+		[IconCategory("Directional Icons"),IconCategory("Hand Icons")]
 		[Description("Hand Outlined Up")]
 		HandOutlinedUp = 0xf0a6,
 		///<summary>Hand Outlined Down (created: 2.0)</summary>
 		///<see href="http://fontawesome.io/icon/hand-o-down/" />
-		[IconCategory("Directional Icons")]
+		[IconCategory("Directional Icons"),IconCategory("Hand Icons")]
 		[Description("Hand Outlined Down")]
 		HandOutlinedDown = 0xf0a7,
 		///<summary>Arrow Circle Left (created: 2.0)</summary>
@@ -1102,7 +1106,7 @@ namespace FontAwesome.WPF {
 		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.SortAscending" />
 		[IconAlias]
 		SortUp = SortAscending,
-		///<summary>Envelope (created: 2.0 - email - e-mail - letter - support - mail - notification)</summary>
+		///<summary>Envelope (created: 2.0)</summary>
 		///<see href="http://fontawesome.io/icon/envelope/" />
 		[IconCategory("Web Application Icons")]
 		[Description("Envelope")]
@@ -1184,7 +1188,7 @@ namespace FontAwesome.WPF {
 		LightbulbOutlined = 0xf0eb,
 		///<summary>Exchange (created: 3.0)</summary>
 		///<see href="http://fontawesome.io/icon/exchange/" />
-		[IconCategory("Web Application Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Directional Icons")]
 		[Description("Exchange")]
 		Exchange = 0xf0ec,
 		///<summary>Cloud Download (created: 3.0)</summary>
@@ -1798,12 +1802,12 @@ namespace FontAwesome.WPF {
 		SortNumericDescending = 0xf163,
 		///<summary>thumbs-up (created: 3.2)</summary>
 		///<see href="http://fontawesome.io/icon/thumbs-up/" />
-		[IconCategory("Web Application Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Hand Icons")]
 		[Description("thumbs-up")]
 		ThumbsUp = 0xf164,
 		///<summary>thumbs-down (created: 3.2)</summary>
 		///<see href="http://fontawesome.io/icon/thumbs-down/" />
-		[IconCategory("Web Application Icons")]
+		[IconCategory("Web Application Icons"),IconCategory("Hand Icons")]
 		[Description("thumbs-down")]
 		ThumbsDown = 0xf165,
 		///<summary>YouTube Square (created: 3.2)</summary>
@@ -1901,7 +1905,7 @@ namespace FontAwesome.WPF {
 		[IconCategory("Brand Icons")]
 		[Description("Apple")]
 		Apple = 0xf179,
-		///<summary>Windows (created: 3.2 - microsoft)</summary>
+		///<summary>Windows (created: 3.2)</summary>
 		///<see href="http://fontawesome.io/icon/windows/" />
 		[IconCategory("Brand Icons")]
 		[Description("Windows")]
@@ -2059,10 +2063,10 @@ namespace FontAwesome.WPF {
 		[IconCategory("Web Application Icons")]
 		[Description("Envelope Square")]
 		EnvelopeSquare = 0xf199,
-		///<summary>Wordpress Logo (created: 4.1)</summary>
+		///<summary>WordPress Logo (created: 4.1)</summary>
 		///<see href="http://fontawesome.io/icon/wordpress/" />
 		[IconCategory("Brand Icons")]
-		[Description("Wordpress Logo")]
+		[Description("WordPress Logo")]
 		WordpressLogo = 0xf19a,
 		///<summary>OpenID (created: 4.1)</summary>
 		///<see href="http://fontawesome.io/icon/openid/" />
@@ -2398,6 +2402,14 @@ namespace FontAwesome.WPF {
 		[IconCategory("Brand Icons")]
 		[Description("Hacker News")]
 		HackerNews = 0xf1d4,
+		///<summary>Alias of: HackerNews</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.HackerNews" />
+		[IconAlias]
+		YCombinatorSquare = HackerNews,
+		///<summary>Alias of: HackerNews</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.HackerNews" />
+		[IconAlias]
+		YcSquare = HackerNews,
 		///<summary>Tencent Weibo (created: 4.1)</summary>
 		///<see href="http://fontawesome.io/icon/tencent-weibo/" />
 		[IconCategory("Brand Icons")]
@@ -2442,13 +2454,9 @@ namespace FontAwesome.WPF {
 		History = 0xf1da,
 		///<summary>Circle Outlined Thin (created: 4.1)</summary>
 		///<see href="http://fontawesome.io/icon/circle-thin/" />
-		[IconCategory("Web Application Icons"),IconCategory("Gender Icons")]
+		[IconCategory("Web Application Icons")]
 		[Description("Circle Outlined Thin")]
 		CircleOutlinedThin = 0xf1db,
-		///<summary>Alias of: CircleOutlinedThin</summary>
-		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.CircleOutlinedThin" />
-		[IconAlias]
-		Genderless = CircleOutlinedThin,
 		///<summary>header (created: 4.1)</summary>
 		///<see href="http://fontawesome.io/icon/header/" />
 		[IconCategory("Text Editor Icons")]
@@ -2538,11 +2546,11 @@ namespace FontAwesome.WPF {
 		[IconCategory("Brand Icons"),IconCategory("Payment Icons")]
 		[Description("Paypal")]
 		Paypal = 0xf1ed,
-		///<summary>Goole Wallet (created: 4.2)</summary>
+		///<summary>Google Wallet (created: 4.2)</summary>
 		///<see href="http://fontawesome.io/icon/google-wallet/" />
 		[IconCategory("Brand Icons"),IconCategory("Payment Icons")]
-		[Description("Goole Wallet")]
-		GooleWallet = 0xf1ee,
+		[Description("Google Wallet")]
+		GoogleWallet = 0xf1ee,
 		///<summary>Visa Credit Card (created: 4.2)</summary>
 		///<see href="http://fontawesome.io/icon/cc-visa/" />
 		[IconCategory("Brand Icons"),IconCategory("Payment Icons")]
@@ -2792,6 +2800,10 @@ namespace FontAwesome.WPF {
 		[IconCategory("Gender Icons")]
 		[Description("Transgender")]
 		Transgender = 0xf224,
+		///<summary>Alias of: Transgender</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.Transgender" />
+		[IconAlias]
+		Intersex = Transgender,
 		///<summary>Transgender Alt (created: 4.3)</summary>
 		///<see href="http://fontawesome.io/icon/transgender-alt/" />
 		[IconCategory("Gender Icons")]
@@ -2832,6 +2844,11 @@ namespace FontAwesome.WPF {
 		[IconCategory("Gender Icons")]
 		[Description("Neuter")]
 		Neuter = 0xf22c,
+		///<summary>Genderless (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/genderless/" />
+		[IconCategory("Gender Icons")]
+		[Description("Genderless")]
+		Genderless = 0xf22d,
 		///<summary>Facebook Official (created: 4.3)</summary>
 		///<see href="http://fontawesome.io/icon/facebook-official/" />
 		[IconCategory("Brand Icons")]
@@ -2891,5 +2908,378 @@ namespace FontAwesome.WPF {
 		[IconCategory("Brand Icons")]
 		[Description("Medium")]
 		Medium = 0xf23a,
+		///<summary>Y Combinator (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/y-combinator/" />
+		[IconCategory("Brand Icons")]
+		[Description("Y Combinator")]
+		YCombinator = 0xf23b,
+		///<summary>Alias of: YCombinator</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.YCombinator" />
+		[IconAlias]
+		Yc = YCombinator,
+		///<summary>Optin Monster (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/optin-monster/" />
+		[IconCategory("Brand Icons")]
+		[Description("Optin Monster")]
+		OptinMonster = 0xf23c,
+		///<summary>OpenCart (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/opencart/" />
+		[IconCategory("Brand Icons")]
+		[Description("OpenCart")]
+		Opencart = 0xf23d,
+		///<summary>ExpeditedSSL (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/expeditedssl/" />
+		[IconCategory("Brand Icons")]
+		[Description("ExpeditedSSL")]
+		Expeditedssl = 0xf23e,
+		///<summary>Battery Full (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/battery-full/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Battery Full")]
+		BatteryFull = 0xf240,
+		///<summary>Alias of: BatteryFull</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.BatteryFull" />
+		[IconAlias]
+		Battery4 = BatteryFull,
+		///<summary>Battery 3/4 Full (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/battery-three-quarters/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Battery 3/4 Full")]
+		Battery3_4Full = 0xf241,
+		///<summary>Alias of: Battery3_4Full</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.Battery3_4Full" />
+		[IconAlias]
+		Battery3 = Battery3_4Full,
+		///<summary>Battery 1/2 Full (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/battery-half/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Battery 1/2 Full")]
+		Battery1_2Full = 0xf242,
+		///<summary>Alias of: Battery1_2Full</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.Battery1_2Full" />
+		[IconAlias]
+		Battery2 = Battery1_2Full,
+		///<summary>Battery 1/4 Full (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/battery-quarter/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Battery 1/4 Full")]
+		Battery1_4Full = 0xf243,
+		///<summary>Alias of: Battery1_4Full</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.Battery1_4Full" />
+		[IconAlias]
+		Battery1 = Battery1_4Full,
+		///<summary>Battery Empty (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/battery-empty/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Battery Empty")]
+		BatteryEmpty = 0xf244,
+		///<summary>Alias of: BatteryEmpty</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.BatteryEmpty" />
+		[IconAlias]
+		Battery0 = BatteryEmpty,
+		///<summary>Mouse Pointer (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/mouse-pointer/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Mouse Pointer")]
+		MousePointer = 0xf245,
+		///<summary>I Beam Cursor (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/i-cursor/" />
+		[IconCategory("Web Application Icons")]
+		[Description("I Beam Cursor")]
+		IBeamCursor = 0xf246,
+		///<summary>Object Group (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/object-group/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Object Group")]
+		ObjectGroup = 0xf247,
+		///<summary>Object Ungroup (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/object-ungroup/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Object Ungroup")]
+		ObjectUngroup = 0xf248,
+		///<summary>Sticky Note (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/sticky-note/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Sticky Note")]
+		StickyNote = 0xf249,
+		///<summary>Sticky Note Outlined (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/sticky-note-o/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Sticky Note Outlined")]
+		StickyNoteOutlined = 0xf24a,
+		///<summary>JCB Credit Card (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/cc-jcb/" />
+		[IconCategory("Brand Icons"),IconCategory("Payment Icons")]
+		[Description("JCB Credit Card")]
+		JCBCreditCard = 0xf24b,
+		///<summary>Diner's Club Credit Card (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/cc-diners-club/" />
+		[IconCategory("Brand Icons"),IconCategory("Payment Icons")]
+		[Description("Diner's Club Credit Card")]
+		DinersClubCreditCard = 0xf24c,
+		///<summary>Clone (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/clone/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Clone")]
+		Clone = 0xf24d,
+		///<summary>Balance Scale (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/balance-scale/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Balance Scale")]
+		BalanceScale = 0xf24e,
+		///<summary>Hourglass Outlined (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/hourglass-o/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Hourglass Outlined")]
+		HourglassOutlined = 0xf250,
+		///<summary>Hourglass Start (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/hourglass-start/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Hourglass Start")]
+		HourglassStart = 0xf251,
+		///<summary>Alias of: HourglassStart</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.HourglassStart" />
+		[IconAlias]
+		Hourglass1 = HourglassStart,
+		///<summary>Hourglass Half (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/hourglass-half/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Hourglass Half")]
+		HourglassHalf = 0xf252,
+		///<summary>Alias of: HourglassHalf</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.HourglassHalf" />
+		[IconAlias]
+		Hourglass2 = HourglassHalf,
+		///<summary>Hourglass End (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/hourglass-end/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Hourglass End")]
+		HourglassEnd = 0xf253,
+		///<summary>Alias of: HourglassEnd</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.HourglassEnd" />
+		[IconAlias]
+		Hourglass3 = HourglassEnd,
+		///<summary>Hourglass (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/hourglass/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Hourglass")]
+		Hourglass = 0xf254,
+		///<summary>Rock (Hand) (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/hand-rock-o/" />
+		[IconCategory("Web Application Icons"),IconCategory("Hand Icons")]
+		[Description("Rock (Hand)")]
+		HandRock = 0xf255,
+		///<summary>Alias of: HandRock</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.HandRock" />
+		[IconAlias]
+		HandGrabO = HandRock,
+		///<summary>Paper (Hand) (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/hand-paper-o/" />
+		[IconCategory("Web Application Icons"),IconCategory("Hand Icons")]
+		[Description("Paper (Hand)")]
+		HandPaper = 0xf256,
+		///<summary>Alias of: HandPaper</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.HandPaper" />
+		[IconAlias]
+		HandStopO = HandPaper,
+		///<summary>Scissors (Hand) (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/hand-scissors-o/" />
+		[IconCategory("Web Application Icons"),IconCategory("Hand Icons")]
+		[Description("Scissors (Hand)")]
+		HandScissors = 0xf257,
+		///<summary>Lizard (Hand) (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/hand-lizard-o/" />
+		[IconCategory("Web Application Icons"),IconCategory("Hand Icons")]
+		[Description("Lizard (Hand)")]
+		HandLizard = 0xf258,
+		///<summary>Spock (Hand) (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/hand-spock-o/" />
+		[IconCategory("Web Application Icons"),IconCategory("Hand Icons")]
+		[Description("Spock (Hand)")]
+		HandSpock = 0xf259,
+		///<summary>Hand Pointer (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/hand-pointer-o/" />
+		[IconCategory("Web Application Icons"),IconCategory("Hand Icons")]
+		[Description("Hand Pointer")]
+		HandPointer = 0xf25a,
+		///<summary>Hand Peace (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/hand-peace-o/" />
+		[IconCategory("Web Application Icons"),IconCategory("Hand Icons")]
+		[Description("Hand Peace")]
+		HandPeace = 0xf25b,
+		///<summary>Trademark (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/trademark/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Trademark")]
+		Trademark = 0xf25c,
+		///<summary>Registered Trademark (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/registered/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Registered Trademark")]
+		RegisteredTrademark = 0xf25d,
+		///<summary>Creative Commons (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/creative-commons/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Creative Commons")]
+		CreativeCommons = 0xf25e,
+		///<summary>GG Currency (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/gg/" />
+		[IconCategory("Currency Icons"),IconCategory("Brand Icons")]
+		[Description("GG Currency")]
+		GGCurrency = 0xf260,
+		///<summary>GG Currency Circle (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/gg-circle/" />
+		[IconCategory("Currency Icons"),IconCategory("Brand Icons")]
+		[Description("GG Currency Circle")]
+		GGCurrencyCircle = 0xf261,
+		///<summary>TripAdvisor (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/tripadvisor/" />
+		[IconCategory("Brand Icons")]
+		[Description("TripAdvisor")]
+		Tripadvisor = 0xf262,
+		///<summary>Odnoklassniki (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/odnoklassniki/" />
+		[IconCategory("Brand Icons")]
+		[Description("Odnoklassniki")]
+		Odnoklassniki = 0xf263,
+		///<summary>Odnoklassniki Square (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/odnoklassniki-square/" />
+		[IconCategory("Brand Icons")]
+		[Description("Odnoklassniki Square")]
+		OdnoklassnikiSquare = 0xf264,
+		///<summary>Get Pocket (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/get-pocket/" />
+		[IconCategory("Brand Icons")]
+		[Description("Get Pocket")]
+		GetPocket = 0xf265,
+		///<summary>Wikipedia W (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/wikipedia-w/" />
+		[IconCategory("Brand Icons")]
+		[Description("Wikipedia W")]
+		WikipediaW = 0xf266,
+		///<summary>Safari (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/safari/" />
+		[IconCategory("Brand Icons")]
+		[Description("Safari")]
+		Safari = 0xf267,
+		///<summary>Chrome (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/chrome/" />
+		[IconCategory("Brand Icons")]
+		[Description("Chrome")]
+		Chrome = 0xf268,
+		///<summary>Firefox (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/firefox/" />
+		[IconCategory("Brand Icons")]
+		[Description("Firefox")]
+		Firefox = 0xf269,
+		///<summary>Opera (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/opera/" />
+		[IconCategory("Brand Icons")]
+		[Description("Opera")]
+		Opera = 0xf26a,
+		///<summary>Internet-explorer (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/internet-explorer/" />
+		[IconCategory("Brand Icons")]
+		[Description("Internet-explorer")]
+		InternetExplorer = 0xf26b,
+		///<summary>Television (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/television/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Television")]
+		Television = 0xf26c,
+		///<summary>Alias of: Television</summary>
+		///<see cref="F:FontAwesome.WPF.FontAwesomeIcon.Television" />
+		[IconAlias]
+		Tv = Television,
+		///<summary>Contao (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/contao/" />
+		[IconCategory("Brand Icons")]
+		[Description("Contao")]
+		Contao = 0xf26d,
+		///<summary>500px (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/500px/" />
+		[IconCategory("Brand Icons")]
+		[Description("500px")]
+		_500Px = 0xf26e,
+		///<summary>Amazon (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/amazon/" />
+		[IconCategory("Brand Icons")]
+		[Description("Amazon")]
+		Amazon = 0xf270,
+		///<summary>Calendar Plus Outlined (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/calendar-plus-o/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Calendar Plus Outlined")]
+		CalendarPlusOutlined = 0xf271,
+		///<summary>Calendar Minus Outlined (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/calendar-minus-o/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Calendar Minus Outlined")]
+		CalendarMinusOutlined = 0xf272,
+		///<summary>Calendar Times Outlined (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/calendar-times-o/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Calendar Times Outlined")]
+		CalendarTimesOutlined = 0xf273,
+		///<summary>Calendar Check Outlined (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/calendar-check-o/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Calendar Check Outlined")]
+		CalendarCheckOutlined = 0xf274,
+		///<summary>Industry (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/industry/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Industry")]
+		Industry = 0xf275,
+		///<summary>Map Pin (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/map-pin/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Map Pin")]
+		MapPin = 0xf276,
+		///<summary>Map Signs (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/map-signs/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Map Signs")]
+		MapSigns = 0xf277,
+		///<summary>Map Outline (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/map-o/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Map Outline")]
+		MapOutline = 0xf278,
+		///<summary>Map (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/map/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Map")]
+		Map = 0xf279,
+		///<summary>Commenting (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/commenting/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Commenting")]
+		Commenting = 0xf27a,
+		///<summary>Commenting Outlined (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/commenting-o/" />
+		[IconCategory("Web Application Icons")]
+		[Description("Commenting Outlined")]
+		CommentingOutlined = 0xf27b,
+		///<summary>Houzz (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/houzz/" />
+		[IconCategory("Brand Icons")]
+		[Description("Houzz")]
+		Houzz = 0xf27c,
+		///<summary>Vimeo (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/vimeo/" />
+		[IconCategory("Brand Icons")]
+		[Description("Vimeo")]
+		Vimeo = 0xf27d,
+		///<summary>Font Awesome Black Tie (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/black-tie/" />
+		[IconCategory("Brand Icons")]
+		[Description("Font Awesome Black Tie")]
+		FontAwesomeBlackTie = 0xf27e,
+		///<summary>Fonticons (created: 4.4)</summary>
+		///<see href="http://fontawesome.io/icon/fonticons/" />
+		[IconCategory("Brand Icons")]
+		[Description("Fonticons")]
+		Fonticons = 0xf280,
 	}
 }
