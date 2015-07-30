@@ -3,7 +3,7 @@
 WPF controls for the iconic font and CSS toolkit Font Awesome.
 
 Font Awesome: http://fortawesome.github.io/Font-Awesome/
-- Current Version: v4.3.0
+- Current Version: v4.4.0
 
 ## Getting started
 
