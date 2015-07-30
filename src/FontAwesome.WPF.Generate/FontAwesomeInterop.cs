@@ -131,10 +131,25 @@ namespace FontAwesome.WPF.Generate
                 var cultureInfo = Thread.CurrentThread.CurrentCulture;
                 var textInfo = cultureInfo.TextInfo;
 
-                text = textInfo.ToTitleCase(text.Replace("-", " "));
-                text = text.Replace(" ", String.Empty).Replace(".", String.Empty).Replace("'", String.Empty);
-                text = REG_PROP.Replace(text, String.Empty);
-                return text;
+                var stringBuilder = new StringBuilder(textInfo.ToTitleCase(text.Replace("-", " ")));
+
+                stringBuilder
+                    .Replace("-", string.Empty).Replace("/", "_")
+                    .Replace(" ", string.Empty).Replace(".", string.Empty)
+                    .Replace("'", string.Empty);
+
+                var match = REG_PROP.Matches(stringBuilder.ToString());
+                stringBuilder = new StringBuilder(REG_PROP.Replace(stringBuilder.ToString(), string.Empty));
+
+                if (match.Count == 1 && match[0].Value == "(Hand)")
+                {
+                    stringBuilder.Insert(0, "Hand");
+                }
+
+                if (char.IsDigit(stringBuilder[0]))
+                    stringBuilder.Insert(0, '_');
+                
+                return stringBuilder.ToString();
             }
         }
         #endregion
