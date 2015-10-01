@@ -10,5 +10,9 @@ namespace FontAwesome.WPF
     /// </summary>
     public interface ISpinable
     {
+        /// <summary>
+        /// Gets or sets the current spin (angle) animation of the icon.
+        /// </summary>
+        bool Spin { get; set; }
     }
 }

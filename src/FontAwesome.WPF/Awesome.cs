@@ -60,5 +60,50 @@ namespace FontAwesome.WPF
         }
 
         private static readonly FontAwesomeIcon _defaultContent = FontAwesomeIcon.None;
+
+        /// <summary>
+        /// Identifies the FontAwesome.WPF.Awesome.SpinDuration attached dependency property.
+        /// </summary>
+        public static readonly DependencyProperty SpinDurationProperty =
+            DependencyProperty.RegisterAttached(
+                "SpinDuration",
+                typeof(double),
+                typeof(Awesome),
+                new PropertyMetadata(1d, SpinDurationChanged));
+
+        /// <summary>
+        /// Gets the duration of the spinning animation.
+        /// </summary>
+        /// <param name="target">The ContentControl subject of the query</param>
+        /// <returns>Duration of the spinning animation</returns>
+        public static double GetSpinDuration(DependencyObject target)
+        {
+            return (double)target.GetValue(SpinDurationProperty);
+        }
+
+        /// <summary>
+        /// Sets the duration of the spinning animation. This will stop and start the spin animation.
+        /// </summary>
+        /// <param name="target">The ContentControl where to set the content</param>
+        /// <param name="value">Duration of the spinning animation</param>
+        public static void SetSpinDuration(DependencyObject target, double value)
+        {
+            target.SetValue(SpinDurationProperty, value);
+        }
+
+        private static void SpinDurationChanged(DependencyObject sender, DependencyPropertyChangedEventArgs evt)
+        {
+            ISpinable target = sender as ISpinable;
+
+            if (null == target || !target.Spin) return;
+
+            if (!(evt.NewValue is double)) return;
+
+            if (evt.NewValue != evt.OldValue)
+            {
+                target.Spin = false;
+                target.Spin = true;
+            }
+        }
     }
 }
