@@ -55,6 +55,7 @@
             <Rectangle Margin="10,2" Fill="LightGray" Width="1" />
             <Label Content="Spin: " />
             <CheckBox VerticalAlignment="Center" x:Name="IconSpin" Margin="0,0,5,0" />
+            <Slider Width="100" VerticalAlignment="Center" Value="1" Minimum="0" Maximum="5" TickFrequency="1" SmallChange="1" LargeChange="2" IsSnapToTickEnabled="True" x:Name="SpinDurationSlider" />
             <Rectangle Margin="10,2" Fill="LightGray" Width="1" />
             <Label Content="Filter: " />
             <TextBox Width="150" Margin="0,3" x:Name="FilterText" TextChanged="FilterText_OnTextChanged" />
@@ -104,6 +105,7 @@
                     Icon="{Binding Path=Icon}"
                     DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
                     FontSize="100" HorizontalAlignment="Center"
+                    fa:Awesome.SpinDuration="{Binding ElementName=SpinDurationSlider, Path=Value, Mode=OneWay}"
                     Spin="{Binding ElementName=IconSpin, Path=IsChecked}" Foreground="#ff222222" />
 
             <TextBlock 
@@ -117,6 +119,7 @@
 
             <fa:ImageAwesome 
                 Icon="{Binding Path=Icon}" Width="50" Height="50" Foreground="Red"
+                fa:Awesome.SpinDuration="{Binding ElementName=SpinDurationSlider, Path=Value, Mode=OneWay}"
                 Spin="{Binding ElementName=IconSpin, Path=IsChecked}"
                 DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
                 />
