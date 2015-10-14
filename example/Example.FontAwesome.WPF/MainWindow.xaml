@@ -105,7 +105,7 @@
                     Icon="{Binding Path=Icon}"
                     DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
                     FontSize="100" HorizontalAlignment="Center"
-                    fa:Awesome.SpinDuration="{Binding ElementName=SpinDurationSlider, Path=Value, Mode=OneWay}"
+                    SpinDuration="{Binding ElementName=SpinDurationSlider, Path=Value, Mode=OneWay}"
                     Spin="{Binding ElementName=IconSpin, Path=IsChecked}" Foreground="#ff222222" />
 
             <TextBlock 
@@ -119,7 +119,7 @@
 
             <fa:ImageAwesome 
                 Icon="{Binding Path=Icon}" Width="50" Height="50" Foreground="Red"
-                fa:Awesome.SpinDuration="{Binding ElementName=SpinDurationSlider, Path=Value, Mode=OneWay}"
+                SpinDuration="{Binding ElementName=SpinDurationSlider, Path=Value, Mode=OneWay}"
                 Spin="{Binding ElementName=IconSpin, Path=IsChecked}"
                 DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
                 />
