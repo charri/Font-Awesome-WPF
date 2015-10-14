@@ -43,7 +43,7 @@ namespace FontAwesome.WPF
                 To = 360,
                 AutoReverse = false,
                 RepeatBehavior = RepeatBehavior.Forever,
-                Duration = new Duration(TimeSpan.FromSeconds(1))
+                Duration = new Duration(TimeSpan.FromSeconds(control.SpinDuration))
             };
             storyboard.Children.Add(animation);
 
