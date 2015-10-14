@@ -41,6 +41,11 @@ namespace FontAwesome.WPF
         /// </summary>
         public static readonly DependencyProperty SpinProperty =
             DependencyProperty.Register("Spin", typeof(bool), typeof(ImageAwesome), new PropertyMetadata(false, OnSpinPropertyChanged));
+        /// <summary>
+        /// Identifies the FontAwesome.WPF.ImageAwesome.Spin dependency property.
+        /// </summary>
+        public static readonly DependencyProperty SpinDurationProperty =
+            DependencyProperty.Register("SpinDuration", typeof(double), typeof(ImageAwesome), new PropertyMetadata(1d, SpinDurationChanged, SpinDurationCoerceValue));
 
         /// <summary>
         /// Gets or sets the foreground brush of the icon. Changing this property will cause the icon to be redrawn.
@@ -78,7 +83,32 @@ namespace FontAwesome.WPF
             else
                 imageAwesome.StopSpin();
         }
-        
+
+        /// <summary>
+        /// Gets or sets the duration of the spinning animation (in seconds). This will stop and start the spin animation.
+        /// </summary>
+        public double SpinDuration
+        {
+            get { return (double)GetValue(SpinDurationProperty); }
+            set { SetValue(SpinDurationProperty, value); }
+        }
+
+        private static void SpinDurationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var imageAwesome = d as ImageAwesome;
+
+            if (null == imageAwesome || !imageAwesome.Spin || !(e.NewValue is double) || e.NewValue.Equals(e.OldValue)) return;
+
+            imageAwesome.StopSpin();
+            imageAwesome.BeginSpin();
+        }
+
+        private static object SpinDurationCoerceValue(DependencyObject d, object value)
+        {
+            double val = (double)value;
+            return val < 0 ? 0d : value;
+        }
+
         private static void OnIconPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var imageAwesome = d as ImageAwesome;
