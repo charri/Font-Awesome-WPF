@@ -72,7 +72,7 @@ namespace FontAwesome.WPF
                 new PropertyMetadata(1d, SpinDurationChanged));
 
         /// <summary>
-        /// Gets the duration of the spinning animation.
+        /// Gets the duration of the spinning animation (in seconds).
         /// </summary>
         /// <param name="target">The ContentControl subject of the query</param>
         /// <returns>Duration of the spinning animation</returns>
@@ -82,7 +82,7 @@ namespace FontAwesome.WPF
         }
 
         /// <summary>
-        /// Sets the duration of the spinning animation. This will stop and start the spin animation.
+        /// Sets the duration of the spinning animation (in seconds). This will stop and start the spin animation.
         /// </summary>
         /// <param name="target">The ContentControl where to set the content</param>
         /// <param name="value">Duration of the spinning animation</param>
@@ -95,15 +95,10 @@ namespace FontAwesome.WPF
         {
             ISpinable target = sender as ISpinable;
 
-            if (null == target || !target.Spin) return;
+            if (null == target || !target.Spin || !(evt.NewValue is double) || evt.NewValue.Equals(evt.OldValue)) return;
 
-            if (!(evt.NewValue is double)) return;
-
-            if (evt.NewValue != evt.OldValue)
-            {
-                target.Spin = false;
-                target.Spin = true;
-            }
+            target.Spin = false;
+            target.Spin = true;
         }
     }
 }
