@@ -62,6 +62,7 @@ namespace FontAwesome.WPF
 
         private static void OnIconPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
+            d.SetValue(TextOptions.TextRenderingModeProperty, TextRenderingMode.ClearType);
             d.SetValue(FontFamilyProperty, FontAwesomeFontFamily);
             d.SetValue(TextAlignmentProperty, TextAlignment.Center);
             d.SetValue(TextProperty, char.ConvertFromUtf32((int)e.NewValue));
