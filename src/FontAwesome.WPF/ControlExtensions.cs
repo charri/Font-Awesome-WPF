@@ -113,19 +113,19 @@ namespace FontAwesome.WPF
         {
             var transformGroup = control.RenderTransform as TransformGroup ?? new TransformGroup();
 
+            var scaleX = control.FlipOrientation == FlipOrientation.Normal || control.FlipOrientation == FlipOrientation.Vertical ? 1 : -1;
+            var scaleY = control.FlipOrientation == FlipOrientation.Normal || control.FlipOrientation == FlipOrientation.Horizontal ? 1 : -1;
+
             var scaleTransform = transformGroup.Children.OfType<ScaleTransform>().FirstOrDefault();
 
             if (scaleTransform != null)
             {
-                scaleTransform.ScaleX = control.FlipOrientation == FlipOrientation.Horizontal ? -1 : 1;
-                scaleTransform.ScaleY = control.FlipOrientation == FlipOrientation.Horizontal ? 1 : -1;
+                scaleTransform.ScaleX = scaleX;
+                scaleTransform.ScaleY = scaleY;
             }
             else
             {
-                transformGroup.Children.Add(
-                    control.FlipOrientation == FlipOrientation.Horizontal
-                        ? new ScaleTransform(-1, 1)
-                        : new ScaleTransform(1, -1));
+                transformGroup.Children.Add(new ScaleTransform(scaleX, scaleY));
                 control.RenderTransform = transformGroup;
                 control.RenderTransformOrigin = new Point(0.5, 0.5);
             }

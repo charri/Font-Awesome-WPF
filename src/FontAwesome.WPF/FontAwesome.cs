@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 
 namespace FontAwesome.WPF
 {
@@ -12,7 +9,7 @@ namespace FontAwesome.WPF
     /// Provides a lightweight control for displaying a FontAwesome icon as text.
     /// </summary>
     public class FontAwesome
-        : TextBlock, ISpinable, IRotatable
+        : TextBlock, ISpinable, IRotatable, IFlippable
     {
         /// <summary>
         /// FontAwesome FontFamily.
@@ -42,6 +39,11 @@ namespace FontAwesome.WPF
         /// </summary>
         public static readonly DependencyProperty RotationProperty =
             DependencyProperty.Register("Rotation", typeof(double), typeof(FontAwesome), new PropertyMetadata(0d, RotationChanged, RotationCoerceValue));
+        /// <summary>
+        /// Identifies the FontAwesome.WPF.FontAwesome.FlipOrientation dependency property.
+        /// </summary>
+        public static readonly DependencyProperty FlipOrientationProperty =
+            DependencyProperty.Register("FlipOrientation", typeof(FlipOrientation), typeof(FontAwesome), new PropertyMetadata(FlipOrientation.Normal, FlipOrientationChanged));
 
         /// <summary>
         /// Gets or sets the FontAwesome icon. Changing this property will cause the icon to be redrawn.
@@ -130,6 +132,24 @@ namespace FontAwesome.WPF
         {
             double val = (double)value;
             return val < 0 ? 0d : (val > 360 ? 360d : value);
+        }
+
+        /// <summary>
+        /// Gets or sets the current orientation (horizontal, vertical).
+        /// </summary>
+        public FlipOrientation FlipOrientation
+        {
+            get { return (FlipOrientation)GetValue(FlipOrientationProperty); }
+            set { SetValue(FlipOrientationProperty, value); }
+        }
+
+        private static void FlipOrientationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var fontAwesome = d as FontAwesome;
+
+            if (null == fontAwesome || !(e.NewValue is FlipOrientation) || e.NewValue.Equals(e.OldValue)) return;
+
+            fontAwesome.SetFlipOrientation();
         }
     }
 }

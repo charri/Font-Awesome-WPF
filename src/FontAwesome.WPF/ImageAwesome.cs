@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
 
 namespace FontAwesome.WPF
 {
@@ -15,7 +10,7 @@ namespace FontAwesome.WPF
     /// Represents a control that draws an FontAwesome icon as an image.
     /// </summary>
     public class ImageAwesome
-        : Image, ISpinable, IRotatable
+        : Image, ISpinable, IRotatable, IFlippable
     {
         /// <summary>
         /// FontAwesome FontFamily.
@@ -51,6 +46,11 @@ namespace FontAwesome.WPF
         /// </summary>
         public static readonly DependencyProperty RotationProperty =
             DependencyProperty.Register("Rotation", typeof(double), typeof(ImageAwesome), new PropertyMetadata(0d, RotationChanged, RotationCoerceValue));
+        /// <summary>
+        /// Identifies the FontAwesome.WPF.ImageAwesome.FlipOrientation dependency property.
+        /// </summary>
+        public static readonly DependencyProperty FlipOrientationProperty =
+            DependencyProperty.Register("FlipOrientation", typeof(FlipOrientation), typeof(ImageAwesome), new PropertyMetadata(FlipOrientation.Normal, FlipOrientationChanged));
 
         /// <summary>
         /// Gets or sets the foreground brush of the icon. Changing this property will cause the icon to be redrawn.
@@ -139,6 +139,24 @@ namespace FontAwesome.WPF
         {
             double val = (double)value;
             return val < 0 ? 0d : (val > 360 ? 360d : value);
+        }
+
+        /// <summary>
+        /// Gets or sets the current orientation (horizontal, vertical).
+        /// </summary>
+        public FlipOrientation FlipOrientation
+        {
+            get { return (FlipOrientation)GetValue(FlipOrientationProperty); }
+            set { SetValue(FlipOrientationProperty, value); }
+        }
+
+        private static void FlipOrientationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var imageAwesome = d as ImageAwesome;
+
+            if (null == imageAwesome || !(e.NewValue is FlipOrientation) || e.NewValue.Equals(e.OldValue)) return;
+
+            imageAwesome.SetFlipOrientation();
         }
 
         private static void OnIconPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

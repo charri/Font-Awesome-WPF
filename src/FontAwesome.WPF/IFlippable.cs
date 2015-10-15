@@ -20,7 +20,7 @@ namespace FontAwesome.WPF
     public interface IFlippable
     {
         /// <summary>
-        /// Gets or sets the current orientation (horizontal, vertical) of the icon.
+        /// Gets or sets the current orientation (horizontal, vertical).
         /// </summary>
         FlipOrientation FlipOrientation { get; set; }
     }
