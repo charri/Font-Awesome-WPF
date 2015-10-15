@@ -6,7 +6,7 @@
     public interface IRotatable
     {
         /// <summary>
-        /// Gets or sets the current rotation (angle) of the icon.
+        /// Gets or sets the current rotation (angle).
         /// </summary>
         double Rotation { get; set; }
     }

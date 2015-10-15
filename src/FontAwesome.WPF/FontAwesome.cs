@@ -12,7 +12,7 @@ namespace FontAwesome.WPF
     /// Provides a lightweight control for displaying a FontAwesome icon as text.
     /// </summary>
     public class FontAwesome
-        : TextBlock, ISpinable
+        : TextBlock, ISpinable, IRotatable
     {
         /// <summary>
         /// FontAwesome FontFamily.
@@ -33,10 +33,15 @@ namespace FontAwesome.WPF
         public static readonly DependencyProperty SpinProperty =
             DependencyProperty.Register("Spin", typeof(bool), typeof(FontAwesome), new PropertyMetadata(false, OnSpinPropertyChanged));
         /// <summary>
-        /// Identifies the FontAwesome.WPF.ImageAwesome.Spin dependency property.
+        /// Identifies the FontAwesome.WPF.FontAwesome.Spin dependency property.
         /// </summary>
         public static readonly DependencyProperty SpinDurationProperty =
             DependencyProperty.Register("SpinDuration", typeof(double), typeof(FontAwesome), new PropertyMetadata(1d, SpinDurationChanged, SpinDurationCoerceValue));
+        /// <summary>
+        /// Identifies the FontAwesome.WPF.FontAwesome.Rotation dependency property.
+        /// </summary>
+        public static readonly DependencyProperty RotationProperty =
+            DependencyProperty.Register("Rotation", typeof(double), typeof(FontAwesome), new PropertyMetadata(0d, RotationChanged, RotationCoerceValue));
 
         /// <summary>
         /// Gets or sets the FontAwesome icon. Changing this property will cause the icon to be redrawn.
@@ -68,10 +73,13 @@ namespace FontAwesome.WPF
 
             if (fontAwesome == null) return;
 
-            if((bool)e.NewValue)
+            if ((bool)e.NewValue)
                 fontAwesome.BeginSpin();
             else
+            {
                 fontAwesome.StopSpin();
+                fontAwesome.SetRotation();
+            }
         }
 
         /// <summary>
@@ -97,6 +105,30 @@ namespace FontAwesome.WPF
         {
             double val = (double)value;
             return val < 0 ? 0d : value;
+        }
+
+        /// <summary>
+        /// Gets or sets the current rotation (angle).
+        /// </summary>
+        public double Rotation
+        {
+            get { return (double)GetValue(RotationProperty); }
+            set { SetValue(RotationProperty, value); }
+        }
+
+        private static void RotationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var fontAwesome = d as FontAwesome;
+
+            if (null == fontAwesome || fontAwesome.Spin || !(e.NewValue is double) || e.NewValue.Equals(e.OldValue)) return;
+
+            fontAwesome.SetRotation();
+        }
+
+        private static object RotationCoerceValue(DependencyObject d, object value)
+        {
+            double val = (double)value;
+            return val < 0 ? 0d : (val > 360 ? 360d : value);
         }
     }
 }

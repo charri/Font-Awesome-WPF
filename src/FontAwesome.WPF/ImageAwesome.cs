@@ -15,7 +15,7 @@ namespace FontAwesome.WPF
     /// Represents a control that draws an FontAwesome icon as an image.
     /// </summary>
     public class ImageAwesome
-        : Image, ISpinable
+        : Image, ISpinable, IRotatable
     {
         /// <summary>
         /// FontAwesome FontFamily.
@@ -46,6 +46,11 @@ namespace FontAwesome.WPF
         /// </summary>
         public static readonly DependencyProperty SpinDurationProperty =
             DependencyProperty.Register("SpinDuration", typeof(double), typeof(ImageAwesome), new PropertyMetadata(1d, SpinDurationChanged, SpinDurationCoerceValue));
+        /// <summary>
+        /// Identifies the FontAwesome.WPF.ImageAwesome.Rotation dependency property.
+        /// </summary>
+        public static readonly DependencyProperty RotationProperty =
+            DependencyProperty.Register("Rotation", typeof(double), typeof(ImageAwesome), new PropertyMetadata(0d, RotationChanged, RotationCoerceValue));
 
         /// <summary>
         /// Gets or sets the foreground brush of the icon. Changing this property will cause the icon to be redrawn.
@@ -78,10 +83,13 @@ namespace FontAwesome.WPF
 
             if (imageAwesome == null) return;
 
-            if((bool)e.NewValue)
+            if ((bool)e.NewValue)
                 imageAwesome.BeginSpin();
             else
+            {
                 imageAwesome.StopSpin();
+                imageAwesome.SetRotation();
+            }
         }
 
         /// <summary>
@@ -107,6 +115,30 @@ namespace FontAwesome.WPF
         {
             double val = (double)value;
             return val < 0 ? 0d : value;
+        }
+
+        /// <summary>
+        /// Gets or sets the current rotation (angle).
+        /// </summary>
+        public double Rotation
+        {
+            get { return (double)GetValue(RotationProperty); }
+            set { SetValue(RotationProperty, value); }
+        }
+
+        private static void RotationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var imageAwesome = d as ImageAwesome;
+
+            if (null == imageAwesome || imageAwesome.Spin || !(e.NewValue is double) || e.NewValue.Equals(e.OldValue)) return;
+
+            imageAwesome.SetRotation();
+        }
+
+        private static object RotationCoerceValue(DependencyObject d, object value)
+        {
+            double val = (double)value;
+            return val < 0 ? 0d : (val > 360 ? 360d : value);
         }
 
         private static void OnIconPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
