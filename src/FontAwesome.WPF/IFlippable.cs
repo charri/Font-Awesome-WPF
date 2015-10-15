@@ -22,6 +22,6 @@ namespace FontAwesome.WPF
         /// <summary>
         /// Gets or sets the current orientation (horizontal, vertical) of the icon.
         /// </summary>
-        FlipOrientation Orientation { get; set; }
+        FlipOrientation FlipOrientation { get; set; }
     }
 }
