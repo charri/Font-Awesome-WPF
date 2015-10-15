@@ -37,6 +37,13 @@
             </Grid>
         </DataTemplate>
 
+        <x:Array x:Key="FlipOrientationArray"
+                 Type="fa:FlipOrientation">
+            <fa:FlipOrientation>Normal</fa:FlipOrientation>
+            <fa:FlipOrientation>Horizontal</fa:FlipOrientation>
+            <fa:FlipOrientation>Vertical</fa:FlipOrientation>
+        </x:Array>
+
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
@@ -59,7 +66,9 @@
             <Slider Width="100" VerticalAlignment="Center" Value="1" Minimum="0" Maximum="5" TickFrequency="1" SmallChange="1" LargeChange="2" IsSnapToTickEnabled="True" x:Name="SpinDurationSlider" />
             <Rectangle Margin="10,2" Fill="LightGray" Width="1" />
             <Label Content="Rotation: " />
-            <Slider Width="150" VerticalAlignment="Center" Value="0" Minimum="0" Maximum="360" x:Name="RotationSlider" />
+            <Slider Width="150" VerticalAlignment="Center" Value="0" Minimum="0" Maximum="360" Ticks="0,45,90,135,180,225,270,315,360" TickPlacement="BottomRight" IsSnapToTickEnabled="True" x:Name="RotationSlider" AutoToolTipPlacement="TopLeft" />
+            <Label Content="Flip: " />
+            <ComboBox VerticalAlignment="Center" Width="100" ItemsSource="{StaticResource FlipOrientationArray}" SelectedIndex="0" x:Name="FlipOrientationSelector" />
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal">
@@ -112,6 +121,7 @@
                     DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
                     FontSize="100" HorizontalAlignment="Center"
                     Rotation="{Binding ElementName=RotationSlider, Path=Value, Mode=OneWay}"
+                    FlipOrientation="{Binding ElementName=FlipOrientationSelector, Path=SelectedItem, Mode=OneWay}"
                     SpinDuration="{Binding ElementName=SpinDurationSlider, Path=Value, Mode=OneWay}"
                     Spin="{Binding ElementName=IconSpin, Path=IsChecked}" Foreground="#ff222222" />
 
@@ -127,6 +137,7 @@
             <fa:ImageAwesome 
                 Icon="{Binding Path=Icon}" Width="50" Height="50" Foreground="Red"
                 Rotation="{Binding ElementName=RotationSlider, Path=Value, Mode=OneWay}"
+                FlipOrientation="{Binding ElementName=FlipOrientationSelector, Path=SelectedItem, Mode=OneWay}"
                 SpinDuration="{Binding ElementName=SpinDurationSlider, Path=Value, Mode=OneWay}"
                 Spin="{Binding ElementName=IconSpin, Path=IsChecked}"
                 DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
