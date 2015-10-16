@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>FontAwesome.WPF</id>
-        <version>4.4.0.5</version>
+        <version>4.4.0.6</version>
         <authors>charri</authors>
         <licenseUrl>https://github.com/charri/Font-Awesome-WPF/blob/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/charri/Font-Awesome-WPF/</projectUrl>

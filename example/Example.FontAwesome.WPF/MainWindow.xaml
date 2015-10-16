@@ -37,8 +37,7 @@
             </Grid>
         </DataTemplate>
 
-        <x:Array x:Key="FlipOrientationArray"
-                 Type="fa:FlipOrientation">
+        <x:Array x:Key="FlipOrientationArray" Type="fa:FlipOrientation">
             <fa:FlipOrientation>Normal</fa:FlipOrientation>
             <fa:FlipOrientation>Horizontal</fa:FlipOrientation>
             <fa:FlipOrientation>Vertical</fa:FlipOrientation>
