@@ -9,8 +9,17 @@ namespace FontAwesome.WPF
     [Localizability(LocalizationCategory.None, Readability = Readability.Unreadable)]
     public enum FlipOrientation
     {
-        Normal,
+        /// <summary>
+        /// Default
+        /// </summary>
+        Normal = 0,
+        /// <summary>
+        /// Flip horizontally (on x-achsis)
+        /// </summary>
         Horizontal,
+        /// <summary>
+        /// Flip vertically (on y-achsis)
+        /// </summary>
         Vertical,
     }
 

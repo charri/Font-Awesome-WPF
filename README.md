@@ -69,11 +69,17 @@ Can be found in /example/ folder.
 
 ## Spinning Icons
 ```
-<fa:ImageAwesome Icon="Spinner" Spin="True" />
+<fa:ImageAwesome Icon="Spinner" Spin="True" SpinDuration="10" />
 ```
 Further examples: http://fontawesome.io/examples/#spinning
 
 Please note: It is advised to use the ImageAwesome Control for spinning icon's due to a line height side-effect with glyph fonts. (The rotation does not occur in the middle of the icon.)
+
+## Rotated / Flipped
+```
+<fa:ImageAwesome Icon="Spinner" FlipOrientation="Horizontal" Rotation="90" />
+```
+http://fontawesome.io/examples/#rotated-flipped
 
 ## Icons
 
@@ -105,3 +111,10 @@ Following meta data is added:
 	* XML-Doc <summary> Alias of: referencing icon
 	* XML-Doc <see /> to referencing field (to reduce code file length)
 	* IconAlias Attribute
+	
+	
+## Credits
+@punker76 - hangable Duration for Spinning Icons, Rotated & Flipped icons
+@BrainCrumbz - Add Awesome.Content attached dependency property
+@MendelMonteiro - better nuget pacakge
+@robertmuehsig - enhanced sample with animation

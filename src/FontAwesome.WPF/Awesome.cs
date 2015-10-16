@@ -16,7 +16,7 @@ namespace FontAwesome.WPF
                 "Content",
                 typeof(FontAwesomeIcon),
                 typeof(Awesome),
-                new PropertyMetadata(_defaultContent, ContentChanged));
+                new PropertyMetadata(DEFAULT_CONTENT, ContentChanged));
 
         /// <summary>
         /// Gets the content of a ContentControl, expressed as a FontAwesome icon.
@@ -43,7 +43,7 @@ namespace FontAwesome.WPF
             // If target is not a ContenControl just ignore: Awesome.Content property can only be set on a ContentControl element
             if (!(sender is ContentControl)) return;
 
-            ContentControl target = sender as ContentControl;
+            ContentControl target = (ContentControl) sender;
 
             // If value is not a FontAwesomeIcon just ignore: Awesome.Content property can only be set to a FontAwesomeIcon value
             if (!(evt.NewValue is FontAwesomeIcon)) return;
@@ -55,6 +55,6 @@ namespace FontAwesome.WPF
             target.Content = symbolChar;
         }
 
-        private static readonly FontAwesomeIcon _defaultContent = FontAwesomeIcon.None;
+        private const FontAwesomeIcon DEFAULT_CONTENT = FontAwesomeIcon.None;
     }
 }
