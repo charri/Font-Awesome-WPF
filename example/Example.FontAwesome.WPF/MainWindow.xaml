@@ -37,9 +37,17 @@
             </Grid>
         </DataTemplate>
 
+        <x:Array x:Key="FlipOrientationArray"
+                 Type="fa:FlipOrientation">
+            <fa:FlipOrientation>Normal</fa:FlipOrientation>
+            <fa:FlipOrientation>Horizontal</fa:FlipOrientation>
+            <fa:FlipOrientation>Vertical</fa:FlipOrientation>
+        </x:Array>
+
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
@@ -57,16 +65,23 @@
             <CheckBox VerticalAlignment="Center" x:Name="IconSpin" Margin="0,0,5,0" />
             <Slider Width="100" VerticalAlignment="Center" Value="1" Minimum="0" Maximum="5" TickFrequency="1" SmallChange="1" LargeChange="2" IsSnapToTickEnabled="True" x:Name="SpinDurationSlider" />
             <Rectangle Margin="10,2" Fill="LightGray" Width="1" />
-            <Label Content="Filter: " />
-            <TextBox Width="150" Margin="0,3" x:Name="FilterText" TextChanged="FilterText_OnTextChanged" />
-            <Rectangle Margin="10,2" Fill="LightGray" Width="1" />
-            <Button Content="Show Single" Margin="0,3" Click="ButtonBase_OnClick" />
-            <Button Content="Show Animated" Margin="3,3,3,3" Click="ButtonBase_OnClickAnimated" />
-
+            <Label Content="Rotation: " />
+            <Slider Width="150" VerticalAlignment="Center" Value="0" Minimum="0" Maximum="360" Ticks="0,45,90,135,180,225,270,315,360" TickPlacement="BottomRight" IsSnapToTickEnabled="True" x:Name="RotationSlider" AutoToolTipPlacement="TopLeft" />
+            <Label Content="Flip: " />
+            <ComboBox VerticalAlignment="Center" Width="100" ItemsSource="{StaticResource FlipOrientationArray}" SelectedIndex="0" x:Name="FlipOrientationSelector" />
         </StackPanel>
 
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Label Content="Filter: " />
+            <TextBox Width="150" Margin="0,3" x:Name="FilterText" TextChanged="FilterText_OnTextChanged" />
+        </StackPanel>
 
-        <ListView Grid.Row="1" ItemsSource="{Binding Source={StaticResource ResourceKey=IconSource}}" x:Name="FaListView" SelectedIndex="0">
+        <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button Content="Show Single" Margin="0,3" Click="ButtonBase_OnClick" />
+            <Button Content="Show Animated" Margin="3,3,3,3" Click="ButtonBase_OnClickAnimated" />
+        </StackPanel>
+
+        <ListView Grid.Row="2" ItemsSource="{Binding Source={StaticResource ResourceKey=IconSource}}" x:Name="FaListView" SelectedIndex="0">
             <ListView.GroupStyle>
                 <GroupStyle>
                     <GroupStyle.ContainerStyle>
@@ -92,7 +107,7 @@
             </ListView.GroupStyle>
         </ListView>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" Margin="10">
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="10">
 
             <TextBlock 
                 Text="{Binding Path=Description}"
@@ -105,6 +120,8 @@
                     Icon="{Binding Path=Icon}"
                     DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
                     FontSize="100" HorizontalAlignment="Center"
+                    Rotation="{Binding ElementName=RotationSlider, Path=Value, Mode=OneWay}"
+                    FlipOrientation="{Binding ElementName=FlipOrientationSelector, Path=SelectedItem, Mode=OneWay}"
                     SpinDuration="{Binding ElementName=SpinDurationSlider, Path=Value, Mode=OneWay}"
                     Spin="{Binding ElementName=IconSpin, Path=IsChecked}" Foreground="#ff222222" />
 
@@ -119,6 +136,8 @@
 
             <fa:ImageAwesome 
                 Icon="{Binding Path=Icon}" Width="50" Height="50" Foreground="Red"
+                Rotation="{Binding ElementName=RotationSlider, Path=Value, Mode=OneWay}"
+                FlipOrientation="{Binding ElementName=FlipOrientationSelector, Path=SelectedItem, Mode=OneWay}"
                 SpinDuration="{Binding ElementName=SpinDurationSlider, Path=Value, Mode=OneWay}"
                 Spin="{Binding ElementName=IconSpin, Path=IsChecked}"
                 DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"

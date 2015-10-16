@@ -26,10 +26,16 @@ namespace FontAwesome.WPF
         public static void BeginSpin<T>(this T control)
             where T : FrameworkElement, ISpinable
         {
-            if (!(control.RenderTransform is TransformGroup
-                      && ((TransformGroup)control.RenderTransform).Children.OfType<RotateTransform>().Any()))
+            var transformGroup = control.RenderTransform as TransformGroup ?? new TransformGroup();
+
+            var rotateTransform = transformGroup.Children.OfType<RotateTransform>().FirstOrDefault();
+
+            if (rotateTransform != null)
             {
-                var transformGroup = new TransformGroup();
+                rotateTransform.Angle = 0;
+            }
+            else
+            {
                 transformGroup.Children.Add(new RotateTransform(0.0));
                 control.RenderTransform = transformGroup;
                 control.RenderTransformOrigin = new Point(0.5, 0.5);
@@ -54,8 +60,8 @@ namespace FontAwesome.WPF
 
             storyboard.Begin();
             control.Resources.Add(SpinnerStoryBoardName, storyboard);
-            
         }
+
         /// <summary>
         /// Stop the spinning animation 
         /// </summary>
@@ -73,5 +79,56 @@ namespace FontAwesome.WPF
             control.Resources.Remove(SpinnerStoryBoardName);
         }
 
+        /// <summary>
+        /// Sets the rotation for the control
+        /// </summary>
+        /// <typeparam name="T">FrameworkElement and IRotatable</typeparam>
+        /// <param name="control">Control to apply the rotation</param>
+        public static void SetRotation<T>(this T control)
+            where T : FrameworkElement, IRotatable
+        {
+            var transformGroup = control.RenderTransform as TransformGroup ?? new TransformGroup();
+
+            var rotateTransform = transformGroup.Children.OfType<RotateTransform>().FirstOrDefault();
+
+            if (rotateTransform != null)
+            {
+                rotateTransform.Angle = control.Rotation;
+            }
+            else
+            {
+                transformGroup.Children.Add(new RotateTransform(control.Rotation));
+                control.RenderTransform = transformGroup;
+                control.RenderTransformOrigin = new Point(0.5, 0.5);
+            }
+        }
+
+        /// <summary>
+        /// Sets the flip orientation for the control
+        /// </summary>
+        /// <typeparam name="T">FrameworkElement and IRotatable</typeparam>
+        /// <param name="control">Control to apply the rotation</param>
+        public static void SetFlipOrientation<T>(this T control)
+            where T : FrameworkElement, IFlippable
+        {
+            var transformGroup = control.RenderTransform as TransformGroup ?? new TransformGroup();
+
+            var scaleX = control.FlipOrientation == FlipOrientation.Normal || control.FlipOrientation == FlipOrientation.Vertical ? 1 : -1;
+            var scaleY = control.FlipOrientation == FlipOrientation.Normal || control.FlipOrientation == FlipOrientation.Horizontal ? 1 : -1;
+
+            var scaleTransform = transformGroup.Children.OfType<ScaleTransform>().FirstOrDefault();
+
+            if (scaleTransform != null)
+            {
+                scaleTransform.ScaleX = scaleX;
+                scaleTransform.ScaleY = scaleY;
+            }
+            else
+            {
+                transformGroup.Children.Add(new ScaleTransform(scaleX, scaleY));
+                control.RenderTransform = transformGroup;
+                control.RenderTransformOrigin = new Point(0.5, 0.5);
+            }
+        }
     }
 }
