@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace FontAwesome.WPF
@@ -186,6 +187,34 @@ namespace FontAwesome.WPF
                         FontAwesomeTypeface, 100, foregroundBrush) { TextAlignment = TextAlignment.Center }, new Point(0, 0));
             }
             return new DrawingImage(visual.Drawing);
+        }
+        
+        /// <summary>
+        /// Occurs when a ImageAwesome is clicked.
+        /// </summary>
+        public static RoutedEvent ClickEvent = EventManager.RegisterRoutedEvent("Click", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(ImageAwesome));
+
+        /// <summary>
+        /// Add or remove click event.
+        /// </summary>
+        public event RoutedEventHandler Click
+        {
+            add { AddHandler(ClickEvent, value); }
+            remove { RemoveHandler(ClickEvent, value); }
+        }
+
+        protected virtual void OnClick()
+        {
+            RoutedEventArgs args = new RoutedEventArgs(ClickEvent, this);
+
+            RaiseEvent(args);
+        }
+
+        protected override void OnMouseLeftButtonUp(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonUp(e);
+
+            OnClick();
         }
     }
 }
