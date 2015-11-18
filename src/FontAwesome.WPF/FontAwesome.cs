@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 
 namespace FontAwesome.WPF
@@ -150,6 +151,34 @@ namespace FontAwesome.WPF
             if (null == fontAwesome || !(e.NewValue is FlipOrientation) || e.NewValue.Equals(e.OldValue)) return;
 
             fontAwesome.SetFlipOrientation();
+        }
+
+        /// <summary>
+        /// Occurs when a FontAwesome is clicked.
+        /// </summary>
+        public static RoutedEvent ClickEvent = EventManager.RegisterRoutedEvent("Click", RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(FontAwesome));
+
+        /// <summary>
+        /// Add or remove click event.
+        /// </summary>
+        public event RoutedEventHandler Click
+        {
+            add { AddHandler(ClickEvent, value); }
+            remove { RemoveHandler(ClickEvent, value); }
+        }
+
+        protected virtual void OnClick()
+        {
+            RoutedEventArgs args = new RoutedEventArgs(ClickEvent, this);
+
+            RaiseEvent(args);
+        }
+
+        protected override void OnMouseLeftButtonUp(MouseButtonEventArgs e)
+        {
+            base.OnMouseLeftButtonUp(e);
+
+            OnClick();
         }
     }
 }
