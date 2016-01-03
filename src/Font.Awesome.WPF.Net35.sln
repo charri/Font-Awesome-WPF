@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontAwesome.WPF", "FontAwesome.WPF\FontAwesome.WPF.csproj", "{7006AC9F-D218-4D7B-98EB-5D2D91F69C57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontAwesome.WPF", "FontAwesome.WPF\FontAwesome.WPF.Net35.csproj", "{7006AC9F-D218-4D7B-98EB-5D2D91F69C57}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontAwesome.WPF.Generate", "FontAwesome.WPF.Generate\FontAwesome.WPF.Generate.csproj", "{9EEDEA68-70BD-4AEF-AD89-5E76D95F039A}"
 EndProject

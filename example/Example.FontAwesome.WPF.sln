@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.FontAwesome.WPF", "Example.FontAwesome.WPF\Example.FontAwesome.WPF.csproj", "{DCF06249-138E-4382-BABF-0981FBBF441A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontAwesome.WPF", "..\src\FontAwesome.WPF\FontAwesome.WPF.csproj", "{7006AC9F-D218-4D7B-98EB-5D2D91F69C57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontAwesome.WPF", "..\src\FontAwesome.WPF\FontAwesome.WPF.NET40.csproj", "{7006AC9F-D218-4D7B-98EB-5D2D91F69C57}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Lib", "_Lib", "{0F713A1A-4EEA-4CB7-82B1-E94AEEB2D10F}"
 EndProject
