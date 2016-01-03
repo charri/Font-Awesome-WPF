@@ -7,12 +7,13 @@
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         xmlns:viewModel="clr-namespace:Example.FontAwesome.WPF.ViewModel"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
-        Title="FontAwesome WPF Example" Height="600" Width="750">
+        Title="FontAwesome WPF Example" Height="700" Width="780">
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
     <Window.Resources>
-
+        
+        
         <CollectionViewSource x:Key="IconSource" Source="{Binding Path=Icons}" Filter="IconSource_OnFilter">
             <CollectionViewSource.SortDescriptions>
                 <componentModel:SortDescription PropertyName="Category" />
@@ -43,7 +44,10 @@
             <fa:FlipOrientation>Vertical</fa:FlipOrientation>
         </x:Array>
 
+        <SolidColorBrush x:Key="ImageBrush"  Color="LightBlue" />
+
     </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -118,7 +122,7 @@
             <fa:FontAwesome 
                     Icon="{Binding Path=Icon}"
                     DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
-                    FontSize="100" HorizontalAlignment="Center"
+                    FontSize="90" HorizontalAlignment="Center"
                     Rotation="{Binding ElementName=RotationSlider, Path=Value, Mode=OneWay}"
                     FlipOrientation="{Binding ElementName=FlipOrientationSelector, Path=SelectedItem, Mode=OneWay}"
                     SpinDuration="{Binding ElementName=SpinDurationSlider, Path=Value, Mode=OneWay}"
@@ -150,7 +154,50 @@
                 FontFamily="Consolas"
                 Margin="0,20"
                 />
+
+            <TextBlock 
+                Text="Using a converter:"
+                TextAlignment="Center"
+                TextWrapping="Wrap"
+                FontFamily="Consolas"
+                Margin="0,20"
+                />
+
+            <fa:FontAwesome 
+                    Icon="{Binding Path=Id, StringFormat='Font Awesome CSS class name: &quot;{0}&quot;', Converter={fa:CssClassNameConverter}}"
+                    DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
+                    FontSize="50" HorizontalAlignment="Center"
+                    Rotation="{Binding ElementName=RotationSlider, Path=Value, Mode=OneWay}"
+                    FlipOrientation="{Binding ElementName=FlipOrientationSelector, Path=SelectedItem, Mode=OneWay}"
+                    SpinDuration="{Binding ElementName=SpinDurationSlider, Path=Value, Mode=OneWay}"
+                    Spin="{Binding ElementName=IconSpin, Path=IsChecked}" Foreground="#ff222222" />
+
+
+            <TextBlock 
+                Text="{Binding Path=Icon, StringFormat='Font Awesome CSS class name: &quot;{0}&quot;', Converter={StaticResource FromIconClassNameConverter}}"
+                DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
+                TextAlignment="Center"
+                TextWrapping="Wrap"
+                FontFamily="Consolas"
+                Margin="0,20"
+                />
+
+            <TextBlock 
+                Text="Setting ImageSource to existing control via converter:"
+                TextAlignment="Center"
+                TextWrapping="Wrap"
+                FontFamily="Consolas"
+                Margin="0,20"
+                />
+
+            <Image 
+                Width="50" Height="50"
+                Source="{Binding Path=Icon, Converter={fa:ImageSourceConverter}, ConverterParameter={StaticResource ImageBrush}}"
+                DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
+                Margin="0,20"
+                />
             
+
         </StackPanel>
     </Grid>
 </Window>

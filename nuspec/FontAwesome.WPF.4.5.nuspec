@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>FontAwesome.WPF</id>
-        <version>4.4.0.6</version>
+        <version>4.5.0.7</version>
         <authors>charri</authors>
         <licenseUrl>https://github.com/charri/Font-Awesome-WPF/blob/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/charri/Font-Awesome-WPF/</projectUrl>
@@ -12,16 +12,17 @@
 For examples https://github.com/charri/Font-Awesome-WPF
 
 Font Awesome: http://fortawesome.github.io/Font-Awesome/</description>
-        <releaseNotes>* Update to FontAwesome v4.4</releaseNotes>
+        <releaseNotes>* Update to FontAwesome v4.5
+* Support for .net 3.5
+* Signed dlls
+Warning: This release contains breaking changes to the FontAwesomeIcon enum.</releaseNotes>
         <tags>fontawesome</tags>
-        <frameworkAssemblies>
-            <frameworkAssembly assemblyName="PresentationCore" targetFramework="" />
-            <frameworkAssembly assemblyName="WindowsBase" targetFramework="" />
-        </frameworkAssemblies>
     </metadata>
     <files>
-        <file src="..\src\FontAwesome.WPF\bin\Release\FontAwesome.WPF.dll" target="lib\FontAwesome.WPF.dll" />
-		<file src="..\src\FontAwesome.WPF\bin\Release\FontAwesome.WPF.xml" target="lib\FontAwesome.WPF.xml" />
+        <file src="..\src\FontAwesome.WPF\bin\Signed-Net35\FontAwesome.WPF.dll" target="lib\net35\" />
+        <file src="..\src\FontAwesome.WPF\bin\Signed-Net35\FontAwesome.WPF.xml" target="lib\net35\" />
+        <file src="..\src\FontAwesome.WPF\bin\Signed-Net40\FontAwesome.WPF.dll" target="lib\net40\" />
+		<file src="..\src\FontAwesome.WPF\bin\Signed-Net40\FontAwesome.WPF.xml" target="lib\net40\" />
         <file src="tools\install.ps1" target="tools\install.ps1" />
     </files>
 </package>

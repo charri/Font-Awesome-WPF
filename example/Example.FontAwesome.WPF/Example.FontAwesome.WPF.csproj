@@ -97,7 +97,7 @@
     <Resource Include="flag.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\FontAwesome.WPF\FontAwesome.WPF.csproj">
+    <ProjectReference Include="..\..\src\FontAwesome.WPF\FontAwesome.WPF.NET40.csproj">
       <Project>{7006ac9f-d218-4d7b-98eb-5d2d91f69c57}</Project>
       <Name>FontAwesome.WPF</Name>
     </ProjectReference>

@@ -3,7 +3,9 @@
 WPF controls for the iconic font and CSS toolkit Font Awesome.
 
 Font Awesome: http://fortawesome.github.io/Font-Awesome/
-- Current Version: v4.4.0
+- Current Version: v4.5.0
+
+*Warning* Breaking changes from version 4.4.0.6 and 4.5.0.7 (enum generation was changed due to overlapping names in Font Awesome 4.5).
 
 ## Getting started
 
@@ -112,9 +114,39 @@ Following meta data is added:
 	* XML-Doc <see /> to referencing field (to reduce code file length)
 	* IconAlias Attribute
 	
-	
+## Converters
+
+The converters are also MarkupExtension, so than can be used in-place without creating a StaticRessource.
+
+### CssClassNameConverter
+
+Say you have (or need) the css class name of a font awesome icon (e.g. "flag"), this converter takes the FontAwesomeIcon enum and translates its value (using reflection) to its css class name (or vice-versa).
+
+There are two modes:
+* FromStringToIcon (Default mode. Expects a string and converts to a FontAwesomeIcon.)
+* FromIconToString (Expects a FontAwesomeIcon and converts it to a string.)
+
+Example usage:
+```
+<TextBlock Text="{Binding Path=FontAwesomeIcon, Converter={fa:CssClassNameConverter Mode=FromIconToString}}" Grid.Column="1" Grid.Row="1" />
+```
+
+### ImageSourceConverter
+
+Use this converter if you require an ImageSource of a FontAwesomeIcon. Use the ConverterParameter to pass the Brush (default is a solid black brush). This is useful for existing wpf controls.
+
+Example usage:
+```
+<SolidColorBrush x:Key="ImageBrush"  Color="LightBlue" />
+...
+<Image 
+    Source="{Binding Path=FontAwesomeIcon, Converter={fa:ImageSourceConverter}, ConverterParameter={StaticResource ImageBrush}}"
+    />
+```	
+
+
 ## Credits
-@punker76 - hangable Duration for Spinning Icons, Rotated & Flipped icons
-@BrainCrumbz - Add Awesome.Content attached dependency property
-@MendelMonteiro - better nuget pacakge
-@robertmuehsig - enhanced sample with animation
+* @punker76 - hangable Duration for Spinning Icons, Rotated & Flipped icons
+* @BrainCrumbz - Add Awesome.Content attached dependency property
+* @MendelMonteiro - better nuget pacakge
+* @robertmuehsig - enhanced sample with animation

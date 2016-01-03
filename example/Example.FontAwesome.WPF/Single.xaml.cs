@@ -26,5 +26,7 @@ namespace Example.FontAwesome.WPF
 
             Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.Flag, Brushes.BlueViolet);
         }
+
+        public FontAwesomeIcon FontAwesomeIcon { get { return FontAwesomeIcon.Flag;} }
     }
 }
