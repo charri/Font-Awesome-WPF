@@ -1,27 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Windows.Data;
+using System.Windows.Markup;
 
 namespace FontAwesome.WPF.Converters
 {
     /// <summary>
-    /// Can convert the CSS class name to a FontAwesomIcon and vice-versa.
+    /// Converts the CSS class name to a FontAwesomIcon and vice-versa.
     /// </summary>
     public class CssClassNameConverter
-        : IValueConverter
+        : MarkupExtension, IValueConverter
     {
-        private static readonly IDictionary<string, FontAwesomeIcon> ClassNameLookup;
-        private static readonly IDictionary<FontAwesomeIcon, string> IconLookup;
- 
+        private static readonly IDictionary<string, FontAwesomeIcon> ClassNameLookup = new Dictionary<string, FontAwesomeIcon>();
+        private static readonly IDictionary<FontAwesomeIcon, string> IconLookup = new Dictionary<FontAwesomeIcon, string>();
+
         static CssClassNameConverter()
         {
-            ClassNameLookup = new Dictionary<string, FontAwesomeIcon>();
-            IconLookup = new Dictionary<FontAwesomeIcon, string>();
-
-            foreach (var value in Enum.GetValues(typeof (FontAwesomeIcon)))
+            foreach (var value in Enum.GetValues(typeof(FontAwesomeIcon)))
             {
                 var memInfo = typeof(FontAwesomeIcon).GetMember(value.ToString());
                 var attributes = memInfo[0].GetCustomAttributes(typeof(IconIdAttribute), false);
@@ -29,6 +28,8 @@ namespace FontAwesome.WPF.Converters
                 if (attributes.Length == 0) continue; // alias
 
                 var id = ((IconIdAttribute)attributes[0]).Id;
+
+                if (ClassNameLookup.ContainsKey(id)) continue;
 
                 ClassNameLookup.Add(id, (FontAwesomeIcon)value);
                 IconLookup.Add((FontAwesomeIcon)value, id);
@@ -38,7 +39,7 @@ namespace FontAwesome.WPF.Converters
         /// <summary>
         /// Gets or sets the mode of the converter
         /// </summary>
-        public CassClassConverterMode Mode { get; set; }
+        public CssClassConverterMode Mode { get; set; }
 
         private static FontAwesomeIcon FromStringToIcon(object value)
         {
@@ -58,21 +59,18 @@ namespace FontAwesome.WPF.Converters
 
         private static string FromIconToString(object value)
         {
-            if (!(value is FontAwesomeIcon)) throw new ArgumentException("Value must be of type: FontAwesomeIcon", "value");
+            if (!(value is FontAwesomeIcon)) return null;
 
             string rValue = null;
 
-            if (!IconLookup.TryGetValue((FontAwesomeIcon)value, out rValue))
-            {
-                throw new Exception("Icon not found. Was an alias entered?");
-            }
-
+            IconLookup.TryGetValue((FontAwesomeIcon) value, out rValue);
+            
             return rValue;
         }
 
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (Mode == CassClassConverterMode.FromStringToIcon)
+            if (Mode == CssClassConverterMode.FromStringToIcon)
                 return FromStringToIcon(value);
             
             return FromIconToString(value);
@@ -80,24 +78,29 @@ namespace FontAwesome.WPF.Converters
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (Mode == CassClassConverterMode.FromStringToIcon)
+            if (Mode == CssClassConverterMode.FromStringToIcon)
                 return FromIconToString(value);
 
             return FromStringToIcon(value);
         }
+
+        public override object ProvideValue(IServiceProvider serviceProvider)
+        {
+            return this;
+        }
     }
 
     /// <summary>
-    /// 
+    /// Defines the CssClassNameConverter mode. 
     /// </summary>
-    public enum CassClassConverterMode
+    public enum CssClassConverterMode
     {
         /// <summary>
-        /// 
+        /// Default mode. Expects a string and converts to a FontAwesomeIcon.
         /// </summary>
         FromStringToIcon = 0,
         /// <summary>
-        /// 
+        /// Expects a FontAwesomeIcon and converts it to a string.
         /// </summary>
         FromIconToString
     }
