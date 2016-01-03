@@ -63,6 +63,7 @@
     <Compile Include="Awesome.cs" />
     <Compile Include="ControlExtensions.cs" />
     <Compile Include="Converters\CssClassNameConverter.cs" />
+    <Compile Include="Converters\DescriptionConverter.cs" />
     <Compile Include="Converters\ImageSourceConverter.cs" />
     <Compile Include="FontAwesome.cs" />
     <Compile Include="FontAwesomeIcon.cs">
@@ -91,8 +92,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>if $(ConfigurationName) == Sign (
+"C:\Program Files\BrutalDev\.NET Assembly Strong-Name Signer\StrongNameSigner.Console.exe" -a $(TargetDir)$(TargetFileName) -k $(SolutionDir)..\prv\FontAwesome.snk
+)</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
