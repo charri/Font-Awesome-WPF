@@ -32,6 +32,16 @@
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\FontAwesome.WPF.xml</DocumentationFile>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Signed|AnyCPU'">
+    <OutputPath>bin\Signed\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>bin\Release\FontAwesome.WPF.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore">
       <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\PresentationCore.dll</HintPath>
@@ -52,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Awesome.cs" />
     <Compile Include="ControlExtensions.cs" />
+    <Compile Include="Converters\CssClassNameConverter.cs" />
     <Compile Include="FontAwesome.cs" />
     <Compile Include="FontAwesomeIcon.cs">
       <LastGenOutput>FontAwesomeIcon.log</LastGenOutput>
@@ -78,6 +89,9 @@
     <EmbeddedResource Include="ImageAwesome.Icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>"C:\Program Files\BrutalDev\.NET Assembly Strong-Name Signer\StrongNameSigner.Console.exe" -a $(TargetDir)$(TargetFileName) -k $(SolutionDir)..\prv\FontAwesome.snk</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
