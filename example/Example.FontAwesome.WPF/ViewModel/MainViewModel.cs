@@ -29,7 +29,8 @@ namespace Example.FontAwesome.WPF.ViewModel
                 foreach (var cat in memberInfo.GetCustomAttributes(typeof(IconCategoryAttribute), false).Cast<IconCategoryAttribute>())
                 {
                     var desc = memberInfo.GetCustomAttributes(typeof(DescriptionAttribute), false).Cast<DescriptionAttribute>().First();
-                    Icons.Add(new IconDescription { Category = cat.Category, Description = desc.Description, Icon = icon });
+                    var id = memberInfo.GetCustomAttributes(typeof(IconIdAttribute), false).Cast<IconIdAttribute>().FirstOrDefault();
+                    Icons.Add(new IconDescription { Category = cat.Category, Description = desc.Description, Icon = icon, Id = id == null ? null : id.Id });
                 }
             }
             
@@ -53,6 +54,8 @@ namespace Example.FontAwesome.WPF.ViewModel
         public FontAwesomeIcon Icon { get; set; }
 
         public string Category { get; set; }
+
+        public string Id { get; set; }
 
     }
 }

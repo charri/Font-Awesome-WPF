@@ -120,7 +120,7 @@ namespace FontAwesome.WPF.Generate
                 {
                     if (string.IsNullOrEmpty(_safeName))
                     {
-                        _safeName = Safe(Name);
+                        _safeName = Safe(Id);
                     }
                     return _safeName;
                 }
@@ -131,6 +131,9 @@ namespace FontAwesome.WPF.Generate
                 var cultureInfo = Thread.CurrentThread.CurrentCulture;
                 var textInfo = cultureInfo.TextInfo;
 
+                if (text.EndsWith("-o") || text.Contains("-o-"))
+                    text = text.Replace("-o", "-outline");
+                
                 var stringBuilder = new StringBuilder(textInfo.ToTitleCase(text.Replace("-", " ")));
 
                 stringBuilder
@@ -138,10 +141,21 @@ namespace FontAwesome.WPF.Generate
                     .Replace(" ", string.Empty).Replace(".", string.Empty)
                     .Replace("'", string.Empty);
 
-                var match = REG_PROP.Matches(stringBuilder.ToString());
+                var matches = REG_PROP.Matches(stringBuilder.ToString());
                 stringBuilder = new StringBuilder(REG_PROP.Replace(stringBuilder.ToString(), string.Empty));
+                var hasMatch = false;
 
-                if (match.Count == 1 && match[0].Value == "(Hand)")
+                for (var i = 0; i < matches.Count; i++)
+                {
+                    var match = matches[i];
+                    if (match.Value.IndexOf("Hand", StringComparison.InvariantCultureIgnoreCase) > -1)
+                    {
+                        hasMatch = true;
+                        break;
+                    }
+                }
+                
+                if (hasMatch)
                 {
                     stringBuilder.Insert(0, "Hand");
                 }

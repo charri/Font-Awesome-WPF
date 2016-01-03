@@ -49,15 +49,17 @@
 	foreach(var item in interop.Items) {
 		WriteLine("///<summary>{0} (created: {1})</summary>", item.Name, item.Created);
 		WriteLine("///<see href=\"{0}\" />", String.Format(baseUrl, item.Id));
+		var sb = new StringBuilder();
+		sb.AppendFormat("Description(\"{0}\"),", item.Name);
+		sb.AppendFormat("IconId(\"{0}\"),", item.Id);
+		
 		if(item.Categories != null && item.Categories.Count > 0) {
-            var sb = new StringBuilder();
 			foreach(var cat in item.Categories) {
                 sb.AppendFormat("IconCategory(\"{0}\"),", cat);
 			}
-		    sb.Remove(sb.Length - 1, 1);
-            WriteLine("[{0}]", sb.ToString());
 		}
-		WriteLine("[Description(\"{0}\")]", item.Name);
+		sb.Remove(sb.Length - 1, 1);
+        WriteLine("[{0}]", sb.ToString());
 		WriteLine("{0} = 0x{1},", item.SafeName, item.Unicode);
 
 		if(item.Aliases != null) {
