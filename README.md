@@ -63,6 +63,27 @@ If you want to create an Image from Code-Behind (e.g. setting the Window.Icon):
 Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.Flag, Brushes.Black);
 ```
 
+If you want to create a Button from Code-Behind:
+
+```F#
+let createFAButton () = 
+    let b = Button()
+    let t = FontAwesome.WPF.FontAwesome ()
+    t.Icon <- FontAwesome.WPF.FontAwesomeIcon.Flag
+    b.Content <- t
+    b
+```
+
+```C#
+void CreateFAButton()
+{
+	var b = new Button();
+	var t = new FontAwesome.WPF.FontAwesome(){Icon = FontAwesome.WPF.FontAwesome.Icon.Flag};
+	b.Content = t;
+	return b;
+}
+```
+
 ## WPF Example
 
 ![alt text](/doc/screen-example.png "Example")
