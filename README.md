@@ -47,8 +47,8 @@ You can also work with existing ContentControl based controls, like Button, with
         TextElement.FontFamily="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome"/>
 ```
 
-> VS2013 XAML Designer has issues when using fonts embedded in another assembly (like this scenario), which prevents it to dispaly the glyph properly.  
-You could either grab a copy of TTF font file and include it in you Project as a Resource, so to use it in FontFamily, or you could follow the advices proposed in this [StackOverflow thread](http://stackoverflow.com/questions/29615572/visual-studio-designer-isnt-displaying-embedded-font/29636373#29636373). 
+> VS2013 XAML Designer has issues when using fonts embedded in another assembly (like this scenario), which prevents it from displaying the glyph properly.  
+You could either grab a copy of TTF font file and include it in you Project as a Resource, so to use it in FontFamily, or you could follow the advice proposed in this [StackOverflow thread](http://stackoverflow.com/questions/29615572/visual-studio-designer-isnt-displaying-embedded-font/29636373#29636373). 
 
 #### Binding
 
@@ -61,6 +61,27 @@ If you want to create an Image from Code-Behind (e.g. setting the Window.Icon):
 
 ```C#
 Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.Flag, Brushes.Black);
+```
+
+If you want to create a Button from Code-Behind:
+
+```F#
+let createFAButton () = 
+    let b = Button()
+    let t = FontAwesome.WPF.FontAwesome ()
+    t.Icon <- FontAwesome.WPF.FontAwesomeIcon.Flag
+    b.Content <- t
+    b
+```
+
+```C#
+void CreateFAButton()
+{
+	var b = new Button();
+	var t = new FontAwesome.WPF.FontAwesome(){Icon = FontAwesome.WPF.FontAwesome.Icon.Flag};
+	b.Content = t;
+	return b;
+}
 ```
 
 ## WPF Example
