@@ -7,8 +7,8 @@
     <ProjectGuid>{9EEDEA68-70BD-4AEF-AD89-5E76D95F039A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>FontAwesome.WPF.Generate</RootNamespace>
-    <AssemblyName>FontAwesome.WPF.Generate</AssemblyName>
+    <RootNamespace>FontAwesome.Generate</RootNamespace>
+    <AssemblyName>FontAwesome.Generate</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

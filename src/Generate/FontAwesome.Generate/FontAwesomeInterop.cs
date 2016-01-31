@@ -1,18 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Threading.Tasks;
-using FontAwesome.WPF.Generate.Annotations;
-using YamlDotNet.RepresentationModel;
+using FontAwesome.Generate.Properties;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
-namespace FontAwesome.WPF.Generate
+namespace FontAwesome.Generate
 {
     public class FontAwesomeInterop
     {
