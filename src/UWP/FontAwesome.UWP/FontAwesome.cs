@@ -11,7 +11,7 @@ namespace FontAwesome.UWP
     public class FontAwesome
         : FontIcon
     {
-        private static readonly FontFamily FontAwesomeFontFamily = new FontFamily("/FontAwesome.UWP;Component/FontAwesome.otf#FontAwesome");
+        private static readonly FontFamily FontAwesomeFontFamily = new FontFamily("ms-appx:///FontAwesome.UWP/FontAwesome.otf#FontAwesome");
 
         public FontAwesome()
         {

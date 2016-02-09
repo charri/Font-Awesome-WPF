@@ -114,9 +114,9 @@
     <EmbeddedResource Include="Properties\Font.Awesome.UWP.rd.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="..\..\..\Font-Awesome\fonts\FontAwesome.otf">
+    <Content Include="..\..\..\Font-Awesome\fonts\FontAwesome.otf">
       <Link>FontAwesome.otf</Link>
-    </Resource>
+    </Content>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
