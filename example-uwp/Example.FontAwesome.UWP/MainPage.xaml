@@ -5,10 +5,88 @@
     xmlns:local="using:Example.FontAwesome.UWP"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModel="using:Example.FontAwesome.UWP.ViewModel"
     xmlns:fa="using:FontAwesome.UWP"
+    xmlns:converter="using:Example.FontAwesome.UWP.Converter"
     mc:Ignorable="d">
+    <Page.DataContext>
+        <viewModel:MainViewModel />
+    </Page.DataContext>
+
+    <Page.Resources>
+        <CollectionViewSource x:Key="IconSource" Source="{Binding Path=Icons}" IsSourceGrouped="True" />
+        <converter:StringFormatConverter x:Key="StringFormatConverter" />
+    </Page.Resources>
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <fa:FontAwesome Icon="AlignCenter" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" Orientation="Horizontal" Grid.ColumnSpan="2">
+            <TextBlock Text="Font-Size: " VerticalAlignment="Center" />
+            <Slider Width="150" VerticalAlignment="Center" Value="80" Minimum="70" Maximum="150" x:Name="FontSizeSlider" />
+            <TextBlock Text="{Binding ElementName=FontSizeSlider, Path=Value}" VerticalAlignment="Center" Margin="5,0,0,5" />
+            <TextBlock Margin="10,0" Text="Filter: "  VerticalAlignment="Center" />
+            <TextBox Width="150"  VerticalAlignment="Center" x:Name="FilterText" TextChanged="FilterText_OnTextChanged" />
+        </StackPanel>
+
+        <ListView Grid.Column="0" Grid.Row="1" SelectionMode="Single" SelectionChanged="Selector_OnSelectionChanged" ItemsSource="{Binding Source={StaticResource ResourceKey=IconSource}}" x:Name="FaListView">
+            <ListView.GroupStyle>
+                <GroupStyle>
+                    <GroupStyle.HeaderTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Key}" FontWeight="Bold" VerticalAlignment="Bottom" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </GroupStyle.HeaderTemplate>
+                </GroupStyle>
+            </ListView.GroupStyle>
+
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="viewModel:IconDescription">
+                    <Grid Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <fa:FontAwesome
+                            Icon="{x:Bind Icon}"
+                            VerticalAlignment="Center" Margin="0,0,10,0" />
+                        <TextBlock Text="{Binding Path=Icon}" Grid.Column="1" VerticalAlignment="Center" />
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="10" Orientation="Vertical">
+
+            <TextBlock 
+                Text="{Binding CurrentIcon.Description}"
+                FontSize="20"
+                Margin="0,20"
+                HorizontalAlignment="Center"
+                />
+
+            <fa:FontAwesome 
+                    Icon="{Binding CurrentIcon.Icon}"
+                    FontSize="{Binding ElementName=FontSizeSlider, Path=Value}"
+                    HorizontalAlignment="Center"
+             />
+               
+            <TextBlock 
+                Text="{Binding CurrentIcon.Icon, Converter={StaticResource StringFormatConverter}, ConverterParameter='&lt;fa:FontAwesome Icon=&quot;{0}&quot; /&gt;'}"
+                FontSize="20"
+                Margin="0,20"
+                HorizontalAlignment="Center"
+                />
+
+        </StackPanel>
     </Grid>
 </Page>
