@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example.FontAwesome.WPF", "Example.FontAwesome.WPF\Example.FontAwesome.WPF.csproj", "{DCF06249-138E-4382-BABF-0981FBBF441A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontAwesome.WPF", "..\src\WPF\FontAwesome.WPF\FontAwesome.WPF.NET40.csproj", "{7006AC9F-D218-4D7B-98EB-5D2D91F69C57}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Lib", "_Lib", "{0F713A1A-4EEA-4CB7-82B1-E94AEEB2D10F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DCF06249-138E-4382-BABF-0981FBBF441A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCF06249-138E-4382-BABF-0981FBBF441A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCF06249-138E-4382-BABF-0981FBBF441A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCF06249-138E-4382-BABF-0981FBBF441A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7006AC9F-D218-4D7B-98EB-5D2D91F69C57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7006AC9F-D218-4D7B-98EB-5D2D91F69C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7006AC9F-D218-4D7B-98EB-5D2D91F69C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7006AC9F-D218-4D7B-98EB-5D2D91F69C57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7006AC9F-D218-4D7B-98EB-5D2D91F69C57} = {0F713A1A-4EEA-4CB7-82B1-E94AEEB2D10F}
+	EndGlobalSection
+EndGlobal
