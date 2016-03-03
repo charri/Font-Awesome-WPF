@@ -32,12 +32,13 @@
         <TextBlock Text="{Binding Path=FontAwesomeIcon, Converter={fa:DescriptionConverter}}" Grid.Column="1" Grid.Row="2" />
 
         <!-- Enable if NuGet package is updated with Awesome.Content property -->
-        <!--
-        <Button fa:Awesome.Content="Flag" 
-                TextElement.FontFamily="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome" 
+        
+        <Button 
+            Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+            fa:Awesome.Content="Flag" 
                 TextElement.FontSize="28pt"  Width="64" Height="64" 
                 VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0, 30, 0, 0" Background="White"/>
-        -->
+        
         <!-- NOTE: VS 2013 XAML Designer will show an empty box instead of actual glyph. It works fine at runtime. -->
     </Grid>
 </Window>

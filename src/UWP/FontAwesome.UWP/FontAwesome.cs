@@ -9,6 +9,9 @@ using Windows.UI.Xaml.Media;
 
 namespace FontAwesome.UWP
 {
+    /// <summary>
+    /// Represents ann icon that uses the FontAwesome font
+    /// </summary>
     public class FontAwesome
         : FontIcon
     {
@@ -37,6 +40,9 @@ namespace FontAwesome.UWP
             FontFamily = FontAwesomeFontFamily;
         }
 
+        /// <summary>
+        /// Gets or sets the FontAwesome icon
+        /// </summary>
         public FontAwesomeIcon Icon
         {
             get { return (FontAwesomeIcon)GetValue(IconProperty); }
