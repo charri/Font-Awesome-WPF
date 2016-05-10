@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FontAwesome.UWP
+namespace FontAwesome.WIN81
 {
     /// <summary>
     /// Specifies a description for a property or event.

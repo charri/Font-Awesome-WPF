@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using Example.FontAwesome.WIN81.Annotations;
-using FontAwesome.UWP;
+using FontAwesome.WIN81;
 
 namespace Example.FontAwesome.WIN81.ViewModel
 {
