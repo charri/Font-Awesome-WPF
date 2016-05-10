@@ -6,7 +6,7 @@
 //     the code is regenerated.
 // </auto-generated>
 //------------------------------------------------------------------------------
-namespace FontAwesome.UWP {
+namespace FontAwesome.WIN81 {
 	using System.ComponentModel;
 	///<summary>
 	///	FontAwesome v4.5.0 by Dave Gandy (@davegandy)

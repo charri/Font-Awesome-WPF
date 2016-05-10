@@ -2,7 +2,7 @@
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
-namespace FontAwesome.UWP
+namespace FontAwesome.WIN81
 {
     /// <summary>
     /// Represents ann icon that uses the FontAwesome font
