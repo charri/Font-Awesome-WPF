@@ -21,7 +21,7 @@
 	var folderRepo = new DirectoryInfo(folderProject).Parent.Parent.Parent.FullName;
 	var configFile = Path.Combine(folderRepo, @"Font-Awesome\_config.yml");
 
-	var outputs = new List<string> { "WPF", "UWP" };
+	var outputs = new List<string> { "WPF", "UWP", "WIN81" };
 
 	foreach(var forOutput in outputs) {
 		var outputFile = Path.Combine(folderRepo, string.Format(@"src\{0}\FontAwesome.{0}\FontAwesomeIcon.cs", forOutput));
