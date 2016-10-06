@@ -70,12 +70,18 @@ Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.Flag, Brushes.Black);
 Can be found in /example-wpf/ folder.
 
 ## Spinning Icons
+
+![](http://i.stack.imgur.com/1w1cC.gif)
+
 ```
 <fa:ImageAwesome Icon="Spinner" Spin="True" SpinDuration="10" />
 ```
-Further examples: http://fontawesome.io/examples/#spinning
 
-Please note: It is advised to use the ImageAwesome Control for spinning icon's due to a line height side-effect with glyph fonts. (The rotation does not occur in the middle of the icon.)
+Pictured are icon types `Spinner`, `CircleOutlineNotch`, `Refresh` and `Cog`. There are [many others](https://github.com/charri/Font-Awesome-WPF/blob/master/src/WPF/FontAwesome.WPF/FontAwesomeIcon.cs).
+
+Using the `ImageAwesome` control for spinning icons is recommended, as it uses the correct centre point for rotation.
+
+Further examples: http://fontawesome.io/examples/#spinning
 
 ## Rotated / Flipped
 ```
