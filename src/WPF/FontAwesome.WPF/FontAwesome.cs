@@ -16,10 +16,6 @@ namespace FontAwesome.WPF
         /// </summary>
         private static readonly FontFamily FontAwesomeFontFamily = new FontFamily(new Uri("pack://application:,,,/FontAwesome.WPF;component/"), "./#FontAwesome");
         /// <summary>
-        /// The key used for storing the spinner Storyboard.
-        /// </summary>
-        private static readonly string StoryBoardName = String.Format("{0}-storyboard-spinner", typeof(FontAwesome).Name);
-        /// <summary>
         /// Identifies the FontAwesome.WPF.FontAwesome.Icon dependency property.
         /// </summary>
         public static readonly DependencyProperty IconProperty =
