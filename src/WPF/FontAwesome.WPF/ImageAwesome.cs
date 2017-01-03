@@ -35,7 +35,7 @@ namespace FontAwesome.WPF
         /// Identifies the FontAwesome.WPF.ImageAwesome.Spin dependency property.
         /// </summary>
         public static readonly DependencyProperty SpinProperty =
-            DependencyProperty.Register("Spin", typeof(bool), typeof(ImageAwesome), new PropertyMetadata(false, OnSpinPropertyChanged));
+            DependencyProperty.Register("Spin", typeof(bool), typeof(ImageAwesome), new PropertyMetadata(false, OnSpinPropertyChanged, SpinCoerceValue));
         /// <summary>
         /// Identifies the FontAwesome.WPF.ImageAwesome.Spin dependency property.
         /// </summary>
@@ -51,6 +51,16 @@ namespace FontAwesome.WPF
         /// </summary>
         public static readonly DependencyProperty FlipOrientationProperty =
             DependencyProperty.Register("FlipOrientation", typeof(FlipOrientation), typeof(ImageAwesome), new PropertyMetadata(FlipOrientation.Normal, FlipOrientationChanged));
+
+        static ImageAwesome()
+        {
+            OpacityProperty.OverrideMetadata(typeof(ImageAwesome), new UIPropertyMetadata(1.0, OpacityChanged));
+        }
+
+        private static void OpacityChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            d.CoerceValue(SpinProperty);
+        }
 
         /// <summary>
         /// Gets or sets the foreground brush of the icon. Changing this property will cause the icon to be redrawn.
@@ -90,6 +100,15 @@ namespace FontAwesome.WPF
                 imageAwesome.StopSpin();
                 imageAwesome.SetRotation();
             }
+        }
+
+        private static object SpinCoerceValue(DependencyObject d, object basevalue)
+        {
+            var imageAwesome = (ImageAwesome)d;
+            if (imageAwesome.Opacity == 0.0 || imageAwesome.SpinDuration == 0.0)
+                return false;
+
+            return basevalue;
         }
 
         /// <summary>

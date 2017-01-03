@@ -24,7 +24,7 @@ namespace FontAwesome.WPF
         /// Identifies the FontAwesome.WPF.FontAwesome.Spin dependency property.
         /// </summary>
         public static readonly DependencyProperty SpinProperty =
-            DependencyProperty.Register("Spin", typeof(bool), typeof(FontAwesome), new PropertyMetadata(false, OnSpinPropertyChanged));
+            DependencyProperty.Register("Spin", typeof(bool), typeof(FontAwesome), new PropertyMetadata(false, OnSpinPropertyChanged, SpinCoerceValue));
         /// <summary>
         /// Identifies the FontAwesome.WPF.FontAwesome.Spin dependency property.
         /// </summary>
@@ -40,6 +40,16 @@ namespace FontAwesome.WPF
         /// </summary>
         public static readonly DependencyProperty FlipOrientationProperty =
             DependencyProperty.Register("FlipOrientation", typeof(FlipOrientation), typeof(FontAwesome), new PropertyMetadata(FlipOrientation.Normal, FlipOrientationChanged));
+
+        static FontAwesome()
+        {
+            OpacityProperty.OverrideMetadata(typeof(FontAwesome), new UIPropertyMetadata(1.0, OpacityChanged));
+        }
+
+        private static void OpacityChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            d.CoerceValue(SpinProperty);
+        }
 
         /// <summary>
         /// Gets or sets the FontAwesome icon. Changing this property will cause the icon to be redrawn.
@@ -81,6 +91,15 @@ namespace FontAwesome.WPF
                 fontAwesome.StopSpin();
                 fontAwesome.SetRotation();
             }
+        }
+
+        private static object SpinCoerceValue(DependencyObject d, object basevalue)
+        {
+            var fontAwesome = (FontAwesome)d;
+            if (fontAwesome.Opacity == 0.0 || fontAwesome.SpinDuration == 0.0)
+                return false;
+
+            return basevalue;
         }
 
         /// <summary>
