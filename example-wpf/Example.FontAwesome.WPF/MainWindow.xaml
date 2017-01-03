@@ -7,7 +7,7 @@
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         xmlns:viewModel="clr-namespace:Example.FontAwesome.WPF.ViewModel"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
-        Title="FontAwesome WPF Example" Height="700" Width="780">
+        Title="FontAwesome WPF Example" Height="700" Width="950">
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
@@ -70,6 +70,9 @@
             <Rectangle Margin="10,2" Fill="LightGray" Width="1" />
             <Label Content="Rotation: " />
             <Slider Width="150" VerticalAlignment="Center" Value="0" Minimum="0" Maximum="360" Ticks="0,45,90,135,180,225,270,315,360" TickPlacement="BottomRight" IsSnapToTickEnabled="True" x:Name="RotationSlider" AutoToolTipPlacement="TopLeft" />
+            <Rectangle Margin="10,2" Fill="LightGray" Width="1" />
+            <Label Content="Opacity: " />
+            <Slider Width="50" VerticalAlignment="Center" Value="1" Minimum="0" Maximum="1" x:Name="OpacitySlider" />
             <Label Content="Flip: " />
             <ComboBox VerticalAlignment="Center" Width="100" ItemsSource="{StaticResource FlipOrientationArray}" SelectedIndex="0" x:Name="FlipOrientationSelector" />
         </StackPanel>
@@ -123,6 +126,7 @@
                     Icon="{Binding Path=Icon}"
                     DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
                     FontSize="90" HorizontalAlignment="Center"
+                    Opacity="{Binding ElementName=OpacitySlider, Path=Value, Mode=OneWay}"
                     Rotation="{Binding ElementName=RotationSlider, Path=Value, Mode=OneWay}"
                     FlipOrientation="{Binding ElementName=FlipOrientationSelector, Path=SelectedItem, Mode=OneWay}"
                     SpinDuration="{Binding ElementName=SpinDurationSlider, Path=Value, Mode=OneWay}"
@@ -139,6 +143,7 @@
 
             <fa:ImageAwesome 
                 Icon="{Binding Path=Icon}" Width="50" Height="50" Foreground="Red"
+                Opacity="{Binding ElementName=OpacitySlider, Path=Value, Mode=OneWay}"
                 Rotation="{Binding ElementName=RotationSlider, Path=Value, Mode=OneWay}"
                 FlipOrientation="{Binding ElementName=FlipOrientationSelector, Path=SelectedItem, Mode=OneWay}"
                 SpinDuration="{Binding ElementName=SpinDurationSlider, Path=Value, Mode=OneWay}"
@@ -167,6 +172,7 @@
                     Icon="{Binding Path=Id, StringFormat='Font Awesome CSS class name: &quot;{0}&quot;', Converter={fa:CssClassNameConverter}}"
                     DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
                     FontSize="50" HorizontalAlignment="Center"
+                    Opacity="{Binding ElementName=OpacitySlider, Path=Value, Mode=OneWay}"
                     Rotation="{Binding ElementName=RotationSlider, Path=Value, Mode=OneWay}"
                     FlipOrientation="{Binding ElementName=FlipOrientationSelector, Path=SelectedItem, Mode=OneWay}"
                     SpinDuration="{Binding ElementName=SpinDurationSlider, Path=Value, Mode=OneWay}"
