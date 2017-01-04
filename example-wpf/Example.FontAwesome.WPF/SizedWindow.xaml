@@ -1,0 +1,30 @@
+﻿<Window x:Class="Example.FontAwesome.WPF.SizedWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Example.FontAwesome.WPF"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        mc:Ignorable="d"
+        Title="Sized" Height="250" Width="540">
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="{x:Type fa:ImageAwesome}">
+                <Setter Property="Margin" Value="10" />
+            </Style>
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="70" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="35" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <fa:ImageAwesome Grid.Column="0" Height="200" Width="200" Icon="Random" />
+        <fa:ImageAwesome Grid.Column="1" Height="100" Width="100" Icon="Random" />
+        <fa:ImageAwesome Grid.Column="2" Height="50" Width="50" Icon="Random" />
+        <fa:ImageAwesome Grid.Column="3" Height="30" Width="30" Icon="Random" />
+        <fa:ImageAwesome Grid.Column="4" Height="15" Width="15" Icon="Random" />
+    </Grid>
+</Window>

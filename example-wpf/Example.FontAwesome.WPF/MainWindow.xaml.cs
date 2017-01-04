@@ -46,6 +46,10 @@ namespace Example.FontAwesome.WPF
             singleRotating.Show();
         }
 
-        
+
+        private void ButtonBase_OnClickSized(object sender, RoutedEventArgs e)
+        {
+            new SizedWindow().Show();
+        }
     }
 }

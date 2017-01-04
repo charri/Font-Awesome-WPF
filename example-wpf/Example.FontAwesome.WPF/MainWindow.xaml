@@ -81,7 +81,8 @@
 
         <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
             <Button Content="Show Single" Margin="0,3" Click="ButtonBase_OnClick" />
-            <Button Content="Show Animated" Margin="3,3,3,3" Click="ButtonBase_OnClickAnimated" />
+            <Button Content="Show Sized" Margin="3,3" Click="ButtonBase_OnClickSized" />
+            <Button Content="Show Animated" Margin="3,3" Click="ButtonBase_OnClickAnimated" />
         </StackPanel>
 
         <ListView Grid.Row="2" ItemsSource="{Binding Source={StaticResource ResourceKey=IconSource}}" x:Name="FaListView" SelectedIndex="0">
@@ -136,7 +137,7 @@
                 FontFamily="Consolas"
                 Margin="0,20"
                 />
-
+            <Grid Height="50" Width="50" Background="Aqua">
             <fa:ImageAwesome 
                 Icon="{Binding Path=Icon}" Width="50" Height="50" Foreground="Red"
                 Rotation="{Binding ElementName=RotationSlider, Path=Value, Mode=OneWay}"
@@ -145,6 +146,7 @@
                 Spin="{Binding ElementName=IconSpin, Path=IsChecked}"
                 DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
                 />
+            </Grid>
 
             <TextBlock 
                 Text="{Binding Path=Icon, StringFormat='&lt;fa:ImageAwesome Icon=&quot;{0}&quot; Width=&quot;50&quot; Height=&quot;50&quot; /&gt;'}"

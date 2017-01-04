@@ -126,6 +126,7 @@ namespace FontAwesome.WPF
             set { SetValue(RotationProperty, value); }
         }
 
+     
         private static void RotationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var imageAwesome = d as ImageAwesome;
@@ -155,7 +156,7 @@ namespace FontAwesome.WPF
             var imageAwesome = d as ImageAwesome;
 
             if (null == imageAwesome || !(e.NewValue is FlipOrientation) || e.NewValue.Equals(e.OldValue)) return;
-
+            
             imageAwesome.SetFlipOrientation();
         }
 
@@ -165,8 +166,9 @@ namespace FontAwesome.WPF
 
             if (imageAwesome == null) return;
 
-            d.SetValue(SourceProperty, CreateImageSource(imageAwesome.Icon, imageAwesome.Foreground));
+            imageAwesome.SetValue(SourceProperty, CreateImageSource(imageAwesome.Icon, imageAwesome.Foreground));
         }
+
 
         /// <summary>
         /// Creates a new System.Windows.Media.ImageSource of a specified FontAwesomeIcon and foreground System.Windows.Media.Brush.
@@ -174,7 +176,7 @@ namespace FontAwesome.WPF
         /// <param name="icon">The FontAwesome icon to be drawn.</param>
         /// <param name="foregroundBrush">The System.Windows.Media.Brush to be used as the foreground.</param>
         /// <returns>A new System.Windows.Media.ImageSource</returns>
-        public static ImageSource CreateImageSource(FontAwesomeIcon icon, Brush foregroundBrush)
+        public static ImageSource CreateImageSource(FontAwesomeIcon icon, Brush foregroundBrush, double emSize = 100)
         {
             var charIcon = char.ConvertFromUtf32((int)icon);
 
@@ -183,9 +185,10 @@ namespace FontAwesome.WPF
             {
                 drawingContext.DrawText(
                     new FormattedText(charIcon, CultureInfo.InvariantCulture, FlowDirection.LeftToRight,
-                        FontAwesomeTypeface, 100, foregroundBrush) { TextAlignment = TextAlignment.Center }, new Point(0, 0));
+                        FontAwesomeTypeface, emSize, foregroundBrush) { TextAlignment = TextAlignment.Center }, new Point(0, 0));
             }
             return new DrawingImage(visual.Drawing);
         }
+
     }
 }
