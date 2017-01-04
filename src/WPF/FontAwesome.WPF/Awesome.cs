@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace FontAwesome.WPF
 {
@@ -8,6 +10,12 @@ namespace FontAwesome.WPF
     /// </summary>
     public static class Awesome
     {
+
+        /// <summary>
+        /// FontAwesome FontFamily.
+        /// </summary>
+        private static readonly FontFamily FontAwesomeFontFamily = new FontFamily(new Uri("pack://application:,,,/FontAwesome.WPF;component/"), "./#FontAwesome");
+
         /// <summary>
         /// Identifies the FontAwesome.WPF.Awesome.Content attached dependency property.
         /// </summary>
@@ -52,6 +60,7 @@ namespace FontAwesome.WPF
             int symbolCode = (int)symbolIcon;
             char symbolChar = (char)symbolCode;
 
+            target.FontFamily = FontAwesomeFontFamily;
             target.Content = symbolChar;
         }
 
