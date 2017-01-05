@@ -9,7 +9,7 @@ using System.Windows.Markup;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("charri")]
 [assembly: AssemblyProduct("FontAwesome.WPF")]
-[assembly: AssemblyCopyright("Copyright © 2015-2016")]
+[assembly: AssemblyCopyright("Copyright © 2015-2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -23,8 +23,8 @@ using System.Windows.Markup;
 
 //      Version: First three numbers is FontAwesome version, the last number specifies code revision
 //
-[assembly: AssemblyVersion("4.5.0.*")]
-[assembly: AssemblyFileVersion("4.5.0.8")]
+[assembly: AssemblyVersion("4.7.0.*")]
+[assembly: AssemblyFileVersion("4.7.0.9")]
 
 [assembly: XmlnsPrefix("http://schemas.fontawesome.io/icons/", "fa")]
 [assembly: XmlnsDefinition("http://schemas.fontawesome.io/icons/", "FontAwesome.WPF")]
