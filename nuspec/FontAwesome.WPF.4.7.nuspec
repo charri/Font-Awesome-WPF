@@ -11,7 +11,7 @@
         <description>WPF (+UWP) controls for the iconic font and CSS toolkit Font Awesome.
 For examples https://github.com/charri/Font-Awesome-WPF
 
-Font Awesome: http://fortawesome.github.io/Font-Awesome/</description>
+Font Awesome: http://fontawesome.io</description>
         <releaseNotes>* Update to Font Awesome 4.7, * Better UHD support, * Performance improvements</releaseNotes>
         <tags>fontawesome</tags>
     </metadata>

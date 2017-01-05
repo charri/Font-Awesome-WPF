@@ -2,7 +2,7 @@
 
 WPF controls for the iconic font and CSS toolkit Font Awesome.
 
-Font Awesome: http://fortawesome.github.io/Font-Awesome/
+Font Awesome: http://fontawesome.io/
 - Current Version: v4.7.0
 
 *Warning* Breaking changes from version 4.4.0.6 and 4.5.0.7 (enum generation was changed due to overlapping names in Font Awesome 4.5).
@@ -12,6 +12,7 @@ Font Awesome: http://fortawesome.github.io/Font-Awesome/
 ### Install
 
 To install FontAwesome.WPF, run the following command in the Package Manager Console:
+
 ```
 PM> Install-Package FontAwesome.WPF
 ```
@@ -21,26 +22,22 @@ Or search & install the package via the NuGet Package Manager.
 
 ### Usage XAML
 
-```
-<Window x:Class="Example.FontAwesome.WPF.Single"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:fa="http://schemas.fontawesome.io/icons/"
-        Title="Single" Height="300" Width="300">
-    <Grid  Margin="20">
-        <fa:ImageAwesome Icon="Flag" VerticalAlignment="Center" HorizontalAlignment="Center" />
-    </Grid>
+```xaml
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:fa="http://schemas.fontawesome.io/icons/">
+    <fa:ImageAwesome Icon="Flag" VerticalAlignment="Center" HorizontalAlignment="Center" />
 </Window>
 ```
 
-You can also use the TextBlock based control.
-```
+You can also use the `TextBlock` based control.
+
+```xaml
 <fa:FontAwesome Icon="Flag" />
 ```
 
 > The Image based `ImageAwesome` control is useful when you need to fill an entire space. Whereas the TextBlock base `FontAwesome` is useful when you need a certain FontSize. 
 
-You can also work with existing ContentControl based controls, like Button, without having to go back to the Font Awesome cheatsheet and look for that Unicode sequence. Use the `Awesome.Content` attached property and select an icon enum value through IntelliSense. Do not forget to set the FontFamily on element or in its style.  
+You can also work with existing `ContentControl` based controls, like `Button`, without having to go back to the Font Awesome cheatsheet and look for that Unicode sequence. Use the `Awesome.Content` attached property and select an icon enum value through IntelliSense. Do not forget to set the `FontFamily` on element or in its style.  
 
 ```xaml
 <Button fa:Awesome.Content="Flag" 
@@ -52,12 +49,12 @@ You could either grab a copy of TTF font file and include it in you Project as a
 
 #### Binding
 
-The Icon Property is a DependencyProperty so it can be used with-in a {Binding}. There is an example in the example project.
+`Icon` is a dependency property so it can be used with binding. There is an example in the example project.
 
 
 ### Usage Code-Behind
 
-If you want to create an Image from Code-Behind (e.g. setting the Window.Icon):
+If you want to create an `Image` from code behind (e.g. setting `Window.Icon`):
 
 ```C#
 Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.Flag, Brushes.Black);
@@ -67,13 +64,13 @@ Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.Flag, Brushes.Black);
 
 ![alt text](/doc/screen-example.png "Example")
 
-Can be found in /example-wpf/ folder.
+Can be found in `/example-wpf/` folder.
 
 ## Spinning Icons
 
 ![](http://i.stack.imgur.com/1w1cC.gif)
 
-```
+```xaml
 <fa:ImageAwesome Icon="Spinner" Spin="True" SpinDuration="10" />
 ```
 

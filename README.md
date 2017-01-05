@@ -2,14 +2,18 @@
 
 WPF & UWP controls for the iconic font and CSS toolkit Font Awesome.
 
-Font Awesome: http://fortawesome.github.io/Font-Awesome/
+Font Awesome: http://fontawesome.io/
 - Current Version: v4.7.0
 
 ## WPF
 
+[![NuGet version](https://img.shields.io/nuget/v/FontAwesome.WPF.svg)](https://www.nuget.org/packages/FontAwesome.WPF/)
+
 [Font-Awesome-WPF README](README-WPF.md)
 
 ## UWP
+
+[![NuGet version](https://img.shields.io/nuget/v/FontAwesome.UWP.svg)](https://www.nuget.org/packages/FontAwesome.UWP/)
 
 [Font-Awesome-UWP README](README-UWP.md)
 
@@ -18,7 +22,7 @@ Font Awesome: http://fortawesome.github.io/Font-Awesome/
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2016 charri
+Copyright (c) 2014-2017 charri
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -37,4 +41,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-

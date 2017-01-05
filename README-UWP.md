@@ -2,7 +2,7 @@
 
 UWP glyph control for the iconic font and CSS toolkit Font Awesome.
 
-Font Awesome: http://fortawesome.github.io/Font-Awesome/
+Font Awesome: http://fontawesome.io/
 - Current Version: v4.7.0
 
 
@@ -17,7 +17,7 @@ PM> Install-Package FontAwesome.UWP
 
 Or search & install the package via the NuGet Package Manager.
 
-> Please note: The FontAwesome.WPF package also targets for UWP. (As "WPF" is part of the package name it makes more sense to have a different package for UWP aswell.)
+> Please note: The FontAwesome.WPF package also targets UWP. (As "WPF" is part of the package name it makes more sense to have a different package for UWP as well.)
 
 
 ### Usage XAML
