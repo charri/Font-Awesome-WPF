@@ -7,9 +7,13 @@ Font Awesome: http://fontawesome.io/
 
 ## WPF
 
+[![NuGet version](https://img.shields.io/nuget/v/FontAwesome.WPF.svg)](https://www.nuget.org/packages/FontAwesome.WPF/)
+
 [Font-Awesome-WPF README](README-WPF.md)
 
 ## UWP
+
+[![NuGet version](https://img.shields.io/nuget/v/FontAwesome.UWP.svg)](https://www.nuget.org/packages/FontAwesome.UWP/)
 
 [Font-Awesome-UWP README](README-UWP.md)
 
