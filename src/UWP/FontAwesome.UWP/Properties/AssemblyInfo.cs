@@ -10,12 +10,12 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("charri")]
 [assembly: AssemblyProduct("FontAwesome.UWP")]
-[assembly: AssemblyCopyright("Copyright © 2016")]
+[assembly: AssemblyCopyright("Copyright © 2015-2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 //      Version: First three numbers is FontAwesome version, the last number specifies code revision
 //
-[assembly: AssemblyVersion("4.5.0.*")]
-[assembly: AssemblyFileVersion("4.5.0.8")]
+[assembly: AssemblyVersion("4.7.0.*")]
+[assembly: AssemblyFileVersion("4.7.0.9")]
 [assembly: ComVisible(false)]

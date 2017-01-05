@@ -3,7 +3,7 @@
 UWP glyph control for the iconic font and CSS toolkit Font Awesome.
 
 Font Awesome: http://fortawesome.github.io/Font-Awesome/
-- Current Version: v4.5.0
+- Current Version: v4.7.0
 
 
 ## Getting started
@@ -89,3 +89,4 @@ Following meta data is added:
 * @robertmuehsig - UWP proof of concept
 * @Alex-Witkowski - UWP tips
 * @dotnetnoobie - Further proof of concept
+* @lufka - Performance improvements

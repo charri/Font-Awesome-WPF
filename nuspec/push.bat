@@ -1,2 +1,2 @@
-nuget push FontAwesome.WPF.*.nupkg
-nuget push FontAwesome.UWP.*.nupkg
+nuget push FontAwesome.WPF.*.nupkg -Source https://www.nuget.org/api/v2/package
+nuget push FontAwesome.UWP.*.nupkg -Source https://www.nuget.org/api/v2/package
