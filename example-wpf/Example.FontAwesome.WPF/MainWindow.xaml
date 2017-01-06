@@ -7,7 +7,7 @@
         xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
         xmlns:viewModel="clr-namespace:Example.FontAwesome.WPF.ViewModel"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
-        Title="FontAwesome WPF Example" Height="700" Width="950">
+        Title="FontAwesome WPF Example" Height="700" Width="1110">
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
@@ -73,8 +73,16 @@
             <Rectangle Margin="10,2" Fill="LightGray" Width="1" />
             <Label Content="Opacity: " />
             <Slider Width="50" VerticalAlignment="Center" Value="1" Minimum="0" Maximum="1" x:Name="OpacitySlider" />
+            <Rectangle Margin="10,2" Fill="LightGray" Width="1" />
             <Label Content="Flip: " />
-            <ComboBox VerticalAlignment="Center" Width="100" ItemsSource="{StaticResource FlipOrientationArray}" SelectedIndex="0" x:Name="FlipOrientationSelector" />
+            <ComboBox VerticalAlignment="Center" Width="90" ItemsSource="{StaticResource FlipOrientationArray}" SelectedIndex="0" x:Name="FlipOrientationSelector" />
+            <Rectangle Margin="10,2" Fill="LightGray" Width="1" />
+            <Label Content="Visibility: " />
+            <ComboBox VerticalAlignment="Center" Width="80" SelectedIndex="0" x:Name="VisibilitySelector" >
+              <Visibility>Visible</Visibility>
+              <Visibility>Collapsed</Visibility>
+              <Visibility>Hidden</Visibility>
+            </ComboBox>
         </StackPanel>
 
         <StackPanel Grid.Row="1" Orientation="Horizontal">
@@ -125,6 +133,7 @@
 
             <fa:FontAwesome 
                     Icon="{Binding Path=Icon}"
+                    Visibility="{Binding ElementName=VisibilitySelector, Path=SelectedItem, Mode=OneWay}"
                     DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
                     FontSize="90" HorizontalAlignment="Center"
                     Opacity="{Binding ElementName=OpacitySlider, Path=Value, Mode=OneWay}"
@@ -144,6 +153,7 @@
             <Grid Height="50" Width="50" Background="Aqua">
             <fa:ImageAwesome 
                 Icon="{Binding Path=Icon}" Width="50" Height="50" Foreground="Red"
+                Visibility="{Binding ElementName=VisibilitySelector, Path=SelectedItem, Mode=OneWay}"
                 Opacity="{Binding ElementName=OpacitySlider, Path=Value, Mode=OneWay}"
                 Rotation="{Binding ElementName=RotationSlider, Path=Value, Mode=OneWay}"
                 FlipOrientation="{Binding ElementName=FlipOrientationSelector, Path=SelectedItem, Mode=OneWay}"
@@ -172,6 +182,7 @@
 
             <fa:FontAwesome 
                     Icon="{Binding Path=Id, StringFormat='Font Awesome CSS class name: &quot;{0}&quot;', Converter={fa:CssClassNameConverter}}"
+                    Visibility="{Binding ElementName=VisibilitySelector, Path=SelectedItem, Mode=OneWay}"
                     DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
                     FontSize="50" HorizontalAlignment="Center"
                     Opacity="{Binding ElementName=OpacitySlider, Path=Value, Mode=OneWay}"
