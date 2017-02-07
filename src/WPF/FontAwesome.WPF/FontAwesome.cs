@@ -46,6 +46,11 @@ namespace FontAwesome.WPF
             OpacityProperty.OverrideMetadata(typeof(FontAwesome), new UIPropertyMetadata(1.0, OpacityChanged));
         }
 
+        public FontAwesome()
+        {
+            IsVisibleChanged += (s, a) => CoerceValue(SpinProperty);
+        }
+
         private static void OpacityChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             d.CoerceValue(SpinProperty);
@@ -96,7 +101,8 @@ namespace FontAwesome.WPF
         private static object SpinCoerceValue(DependencyObject d, object basevalue)
         {
             var fontAwesome = (FontAwesome)d;
-            if (fontAwesome.Opacity == 0.0 || fontAwesome.SpinDuration == 0.0)
+
+            if (!fontAwesome.IsVisible || fontAwesome.Opacity == 0.0 || fontAwesome.SpinDuration == 0.0)
                 return false;
 
             return basevalue;
