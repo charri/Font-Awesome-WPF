@@ -47,6 +47,14 @@ You can also work with existing ContentControl based controls, like Button, with
         TextElement.FontFamily="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome"/>
 ```
 
+Or use markup extension
+
+```xaml
+<Button Content="{fa:FontAwesome Flag}" TextElement.FontFamily="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome"/>
+
+<TextBlock Text="{fa:FontAwesome Flag}" FontFamily="pack://application:,,,/FontAwesome.WPF;component/#FontAwesome"/>
+``` 
+
 > VS2013 XAML Designer has issues when using fonts embedded in another assembly (like this scenario), which prevents it to dispaly the glyph properly.  
 You could either grab a copy of TTF font file and include it in you Project as a Resource, so to use it in FontFamily, or you could follow the advices proposed in this [StackOverflow thread](http://stackoverflow.com/questions/29615572/visual-studio-designer-isnt-displaying-embedded-font/29636373#29636373). 
 
