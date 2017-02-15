@@ -1139,7 +1139,7 @@ namespace FontAwesome.WPF {
 		///<summary>Folder Open Outlined (created: 3.0)</summary>
 		///<see href="http://fontawesome.io/icon/folder-open-o/" />
 		[Description("Folder Open Outlined"),IconId("folder-open-o"),IconCategory("Web Application Icons")]
-		FolderOutlinepenOutline = 0xf115,
+		FolderOpenOutline = 0xf115,
 		///<summary>Smile Outlined (created: 3.1)</summary>
 		///<see href="http://fontawesome.io/icon/smile-o/" />
 		[Description("Smile Outlined"),IconId("smile-o"),IconCategory("Web Application Icons")]
