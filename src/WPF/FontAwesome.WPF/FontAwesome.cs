@@ -9,7 +9,7 @@ namespace FontAwesome.WPF
     /// Provides a lightweight control for displaying a FontAwesome icon as text.
     /// </summary>
     public class FontAwesome
-        : TextBlock, ISpinable, IRotatable, IFlippable
+        : TextBlock, ISpinable, IRotatable, IFlippable, IPulsable
     {
         /// <summary>
         /// FontAwesome FontFamily.
@@ -40,6 +40,18 @@ namespace FontAwesome.WPF
         /// </summary>
         public static readonly DependencyProperty FlipOrientationProperty =
             DependencyProperty.Register("FlipOrientation", typeof(FlipOrientation), typeof(FontAwesome), new PropertyMetadata(FlipOrientation.Normal, FlipOrientationChanged));
+
+        /// <summary>
+        /// Identifies the FontAwesome.WPF.FontAwesome.Pulse dependency property.
+        /// </summary>
+        public static readonly DependencyProperty PulseProperty =
+            DependencyProperty.Register("Pulse", typeof(bool), typeof(FontAwesome), new PropertyMetadata(false, OnPulsePropertyChanged, PulseCoerceValue));
+
+        /// <summary>
+        /// Identifies the FontAwesome.WPF.FontAwesome.PulseDuration dependency property.
+        /// </summary>
+        public static readonly DependencyProperty PulseDurationProperty =
+            DependencyProperty.Register("PulseDuration", typeof(double), typeof(FontAwesome), new PropertyMetadata(0d, PulseDurationChanged, PulseDurationCoerceValue));
 
         static FontAwesome()
         {
@@ -128,6 +140,65 @@ namespace FontAwesome.WPF
         }
 
         private static object SpinDurationCoerceValue(DependencyObject d, object value)
+        {
+            double val = (double)value;
+            return val < 0 ? 0d : value;
+        }
+
+        /// <summary>
+        /// Gets or sets the state of the Pulse animation
+        /// </summary>
+        public bool Pulse
+        {
+            get { return (bool)GetValue(PulseProperty); }
+            set { SetValue(PulseProperty, value); }
+        }
+
+        private static void OnPulsePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var imageAwesome = d as FontAwesome;
+
+            if (imageAwesome == null) return;
+
+            if ((bool)e.NewValue)
+                imageAwesome.BeginPulse();
+            else
+            {
+                imageAwesome.StopPulse();
+                imageAwesome.SetRotation();
+            }
+        }
+
+        private static object PulseCoerceValue(DependencyObject d, object basevalue)
+        {
+            var imageAwesome = (FontAwesome)d;
+
+            if (!imageAwesome.IsVisible || imageAwesome.Opacity == 0.0 || imageAwesome.PulseDuration == 0.0)
+                return false;
+
+            return basevalue;
+        }
+
+        /// <summary>
+        /// Gets or sets the length of the Pulse animation in seconds
+        /// </summary>
+        public double PulseDuration
+        {
+            get { return (double)GetValue(PulseDurationProperty); }
+            set { SetValue(PulseDurationProperty, value); }
+        }
+
+        private static void PulseDurationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var imageAwesome = d as FontAwesome;
+
+            if (null == imageAwesome || !imageAwesome.Pulse || !(e.NewValue is double) || e.NewValue.Equals(e.OldValue)) return;
+
+            imageAwesome.StopPulse();
+            imageAwesome.BeginPulse();
+        }
+
+        private static object PulseDurationCoerceValue(DependencyObject d, object value)
         {
             double val = (double)value;
             return val < 0 ? 0d : value;

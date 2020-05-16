@@ -72,6 +72,7 @@
     <Compile Include="Attributes.cs" />
     <Compile Include="IFlippable.cs" />
     <Compile Include="ImageAwesome.cs" />
+    <Compile Include="IPulsable.cs" />
     <Compile Include="IRotatable.cs" />
     <Compile Include="ISpinable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

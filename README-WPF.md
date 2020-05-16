@@ -69,7 +69,7 @@ Icon = ImageAwesome.CreateImageSource(FontAwesomeIcon.Flag, Brushes.Black);
 
 Can be found in /example-wpf/ folder.
 
-## Spinning Icons
+## Spinning / Pulsing Icons
 
 ![](http://i.stack.imgur.com/1w1cC.gif)
 
@@ -78,6 +78,12 @@ Can be found in /example-wpf/ folder.
 ```
 
 Pictured are icon types `Spinner`, `CircleOutlineNotch`, `Refresh` and `Cog`. There are [many others](https://github.com/charri/Font-Awesome-WPF/blob/master/src/WPF/FontAwesome.WPF/FontAwesomeIcon.cs).
+
+You can also use the "Pulse" animation which rotates the icon in 8 descrete steps.
+
+```
+<fa:ImageAwesome Icon="Spinner" Pulse="True" PulseDuration="10" />
+```
 
 Using the `ImageAwesome` control for spinning icons is recommended, as it uses the correct centre point for rotation.
 

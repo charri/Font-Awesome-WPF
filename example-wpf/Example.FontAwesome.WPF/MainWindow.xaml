@@ -68,6 +68,10 @@
             <CheckBox VerticalAlignment="Center" x:Name="IconSpin" Margin="0,0,5,0" />
             <Slider Width="100" VerticalAlignment="Center" Value="1" Minimum="0" Maximum="5" TickFrequency="1" SmallChange="1" LargeChange="2" IsSnapToTickEnabled="True" x:Name="SpinDurationSlider" />
             <Rectangle Margin="10,2" Fill="LightGray" Width="1" />
+            <Label Content="Pulse: " />
+            <CheckBox VerticalAlignment="Center" x:Name="IconPulse" Margin="0,0,5,0" />
+            <Slider Width="100" VerticalAlignment="Center" Value="1" Minimum="0" Maximum="5" TickFrequency="1" SmallChange="1" LargeChange="2" IsSnapToTickEnabled="True" x:Name="PulseDurationSlider" />
+            <Rectangle Margin="10,2" Fill="LightGray" Width="1" />
             <Label Content="Rotation: " />
             <Slider Width="150" VerticalAlignment="Center" Value="0" Minimum="0" Maximum="360" Ticks="0,45,90,135,180,225,270,315,360" TickPlacement="BottomRight" IsSnapToTickEnabled="True" x:Name="RotationSlider" AutoToolTipPlacement="TopLeft" />
             <Rectangle Margin="10,2" Fill="LightGray" Width="1" />
@@ -140,7 +144,10 @@
                     Rotation="{Binding ElementName=RotationSlider, Path=Value, Mode=OneWay}"
                     FlipOrientation="{Binding ElementName=FlipOrientationSelector, Path=SelectedItem, Mode=OneWay}"
                     SpinDuration="{Binding ElementName=SpinDurationSlider, Path=Value, Mode=OneWay}"
-                    Spin="{Binding ElementName=IconSpin, Path=IsChecked}" Foreground="#ff222222" />
+                    Spin="{Binding ElementName=IconSpin, Path=IsChecked}"
+                    PulseDuration="{Binding ElementName=PulseDurationSlider, Path=Value, Mode=OneWay}"
+                    Pulse="{Binding ElementName=IconPulse, Path=IsChecked}"
+                    Foreground="#ff222222" />
 
             <TextBlock 
                 Text="{Binding Path=Icon, StringFormat='&lt;fa:FontAwesome Icon=&quot;{0}&quot; FontSize=&quot;100&quot; /&gt;'}"
@@ -159,6 +166,8 @@
                 FlipOrientation="{Binding ElementName=FlipOrientationSelector, Path=SelectedItem, Mode=OneWay}"
                 SpinDuration="{Binding ElementName=SpinDurationSlider, Path=Value, Mode=OneWay}"
                 Spin="{Binding ElementName=IconSpin, Path=IsChecked}"
+                PulseDuration="{Binding ElementName=PulseDurationSlider, Path=Value, Mode=OneWay}"
+                Pulse="{Binding ElementName=IconPulse, Path=IsChecked}"
                 DataContext="{Binding ElementName=FaListView, Path=SelectedItem}"
                 />
             </Grid>
@@ -189,7 +198,10 @@
                     Rotation="{Binding ElementName=RotationSlider, Path=Value, Mode=OneWay}"
                     FlipOrientation="{Binding ElementName=FlipOrientationSelector, Path=SelectedItem, Mode=OneWay}"
                     SpinDuration="{Binding ElementName=SpinDurationSlider, Path=Value, Mode=OneWay}"
-                    Spin="{Binding ElementName=IconSpin, Path=IsChecked}" Foreground="#ff222222" />
+                    Spin="{Binding ElementName=IconSpin, Path=IsChecked}"
+                    PulseDuration="{Binding ElementName=PulseDurationSlider, Path=Value, Mode=OneWay}"
+                    Pulse="{Binding ElementName=IconPulse, Path=IsChecked}"
+                    Foreground="#ff222222" />
 
 
             <TextBlock 
