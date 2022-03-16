@@ -1,0 +1,30 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup Label="BuildDefault">
+        <!--<TargetFramework>net48</TargetFramework>-->
+        <TargetFrameworks>net48;net6.0</TargetFrameworks>
+        <TargetFrameworks Condition="'$(UseWPF)'=='true'">net48;net6.0-windows</TargetFrameworks>
+
+        <PlatformTarget>AnyCPU</PlatformTarget>
+
+        <!-- Framework subfolder in build output? -->
+        <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+        <!-- create NuGet on Build? -->
+        <GeneratePackageOnBuild Condition="'$(Configuration)'=='Release'">true</GeneratePackageOnBuild>
+        <!-- Dont add the subfolder for the identifier -->
+        <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)'=='Debug'">
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug</OutputPath>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)'=='Release'">
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release</OutputPath>
+    </PropertyGroup>
+</Project>

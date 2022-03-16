@@ -1,0 +1,54 @@
+# Version 0.5.0 [Feb.2022, TF]
+name: AdvancedChecks
+
+
+on:
+  # Trigger the workflow on push request,
+  push:
+    # push only for the master and main branch
+    branches:
+      - master
+      - main
+  
+  # Trigger the workflow on pull request,
+  pull_request:
+
+  # allow for manual start of the test
+  workflow_dispatch:
+
+jobs:
+  CheckReferences:
+    runs-on: self-hosted
+    steps:
+    - name: Checkout repository and submodules
+      uses: actions/checkout@v2
+      with:
+        token: ${{ secrets.SUBMODULEENABLEDACTION }}
+        submodules: recursive
+    - name: check for external project references
+      run: ProjectReferenceChecker -g --no-external-references
+#    - name: check for hard-references
+#      run: ProjectReferenceChecker -g --no-references
+
+  DebugBuild:
+    needs: CheckReferences
+    runs-on: self-hosted
+    steps:
+    - name: DebugBuild
+      run: dotnet build -c Debug -v normal -nowarn:CS1591
+      # CS1591 are the no xml comment warnings
+
+  ReleaseBuild:
+    needs: DebugBuild
+    runs-on: self-hosted
+    steps:
+    - name: ReleaseBuild
+      run: dotnet build -c Release -v normal -nowarn:CS1591
+      # CS1591 are the no xml comment warnings
+
+  UnitTests:
+    needs: ReleaseBuild
+    runs-on: self-hosted
+    steps:
+    - name: run UnitTests
+      run: dotnet test -c Release --no-build

@@ -1,0 +1,15 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+    <PropertyGroup>
+        <Company>Vistron GmbH</Company>
+        <Copyright>Copyright © Vistron GmbH 2022</Copyright>
+        <Authors>charri, Manuel Blattner</Authors>
+    </PropertyGroup>
+
+    <PropertyGroup Label="BuildOverwrite">
+    </PropertyGroup>
+
+    <PropertyGroup Label="Repository">
+        <RepositoryUrl></RepositoryUrl>
+    </PropertyGroup>
+</Project>

@@ -1,25 +1,34 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontAwesome.WPF.Net35", "FontAwesome.WPF\FontAwesome.WPF.Net35.csproj", "{7006AC9F-D218-4D7B-98EB-5D2D91F69C57}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FontAwesome.WPF", "src\FontAwesome.WPF\FontAwesome.WPF.csproj", "{7006AC9F-D218-4D7B-98EB-5D2D91F69C57}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C8504024-951A-4868-AA03-E743CF7C8470}"
+	ProjectSection(SolutionItems) = preProject
+		README-UWP.md = README-UWP.md
+		README-WPF.md = README-WPF.md
+		README.md = README.md
+		Vistron.props = Vistron.props
+		Vistron.targets = Vistron.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-		Signed|Any CPU = Signed|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{7006AC9F-D218-4D7B-98EB-5D2D91F69C57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7006AC9F-D218-4D7B-98EB-5D2D91F69C57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7006AC9F-D218-4D7B-98EB-5D2D91F69C57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7006AC9F-D218-4D7B-98EB-5D2D91F69C57}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7006AC9F-D218-4D7B-98EB-5D2D91F69C57}.Signed|Any CPU.ActiveCfg = Signed|Any CPU
-		{7006AC9F-D218-4D7B-98EB-5D2D91F69C57}.Signed|Any CPU.Build.0 = Signed|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1475400B-27D7-411A-8AE2-3ACF53A90910}
 	EndGlobalSection
 EndGlobal

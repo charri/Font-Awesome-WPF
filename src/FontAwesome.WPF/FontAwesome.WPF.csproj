@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <UseWPF>true</UseWPF>
+    </PropertyGroup>
+
+    <Import Project="..\..\Vistron.props" Condition="Exists('..\\..\\Vistron.props')" />
+    <Import Project="..\..\Vistron.targets" Condition="Exists('..\\..\\Vistron.targets')" />
+
+    <PropertyGroup Label="OverWrites">
+        <AssemblyTitle>Font Awesome WPF</AssemblyTitle>
+        <Company>charri</Company>
+        <Copyright>Copyright © 2015-2017</Copyright>
+    </PropertyGroup>
+
+
+    <PropertyGroup>
+        <Product>FontAwesome.WPF</Product>
+        <Version>5.13.0</Version>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Description>Wpf components for the iconic font and CSS toolkit Font-Awesome</Description>
+        <PackageReleaseNotes>
+            5.13.0 - 2022 Update from Vitron
+            5.12.2 - fixed problem with 5.12.1 nuget building and updated Fileversion and AssemblyVersion
+            5.12.1 - fixed ImageAwesome bug, that prevents StyleSelector from working
+            Initial Release, unstable, FontAweome class tested, ImageAwesome and Awesome atached properties untested.
+        </PackageReleaseNotes>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="FontAwesome.Icon.png" />
+        <EmbeddedResource Include="ImageAwesome.Icon.png" />
+        <Resource Include="Font Awesome 5 Brands-Regular-400.otf" />
+        <Resource Include="Font Awesome 5 Free-Regular-400.otf" />
+        <Resource Include="Font Awesome 5 Free-Solid-900.otf" />
+    </ItemGroup>
+</Project>
